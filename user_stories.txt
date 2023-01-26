@@ -1,0 +1,84 @@
+USER STORIES
+
+[atendente]
+
+as a clerk 
+i want to register gelato weighting in and out of vetrina
+so that i can write gelato diary 
+
+as a clerk
+i want to register casquinha do dia weight per user
+so that i can write it on gelato diary
+
+as a clerk
+i would like to know gelato cuba number that I should bring to the starting display
+so that i could easily do this task in less time
+
+as a clerk
+i would like to get a suggestion of which gelato should bring to replace the one going out
+so that i dont need to think about (so that i will be confident on my choice)
+
+[cliente]
+as a customer
+i want to know the live gelato display flavours available
+so that i can decide to visit the gelateria
+
+[produtora]
+as a gelato maker
+i want to know gelato quantity per flavour
+so that i can figure out the ones to produce
+
+[gerente]
+as a manager
+i want to know gelato consumption
+so that i can calculate daily monthly annualy gelato cost
+
+as a manager
+i want to know gelato sold in grams
+so that i can calculate gelato consumption error (daily monthly annualy)
+
+as a manager
+i want to know gelato income
+so that i can calculate the cost-to-income rate (cost/sales ratio)
+
+as a manager
+i want to eliminate manual gelato weighting
+so that i can eliminate errors and speed up process
+
+as a manager
+i want to have an eletronic gelato diary
+so that i can eliminated paper diary print and delivery task
+
+as a manager
+i want to be able do add and remove gelato flavour from the list
+so that i can keep gelato list updated
+
+as a manager 
+i want to be able to verify gelato display flavours
+so that i can check if it shows a well balanced offer to customers
+
+as a manager
+i want to have a web dashboard on the gelato diary information
+so that i can access the information from anywhere mobile or pc
+
+as a manager
+i want the application to get sales information from Datacaixa
+so that i dont have to manualy do this
+
+as a manager
+i want to keep track of gelato recipes, production itens and costs
+so that i can figure out gelato cost per flavour
+
+as a manager
+i want to know the average gelato sales cost per day
+so that i can control profit margin
+
+as a manager 
+i want to know gelato best selling flavour ordered list
+so that i can better understand customers taste
+
+as a manager
+i want to know gelato cost per flavour ordered list
+so that i can keep understand the ones with more impact on gelato cost
+
+
