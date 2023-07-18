@@ -75,8 +75,12 @@ as a manager
 i want to be able to verify gelato display flavours
 so that i can check if it shows a well balanced offer to customers
 
+as a manager 
+i want to get an alert when the gelato offer is off-balance
+so that i can ask for changes on gelato display flavours
+
 as a manager
-i want to have a web dashboard on the gelato diary information
+i want to have a web dashboard on the gelato journal information
 so that i can access the information from anywhere mobile or pc
 
 as a manager
@@ -97,7 +101,11 @@ so that i can better understand customers taste
 
 as a manager
 i want to know gelato cost per flavour ordered list
-so that i can keep understand the ones with more impact on gelato cost
+so that i can understand the ones with more impact on gelato cost
+
+as a manager
+i want to get as many alerts as possible from the data
+so that it can be simple to trigger actions
 
 [WHAT'S NEXT?]
 Product Owner:
