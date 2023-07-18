@@ -15,17 +15,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DiarioDelGelato.UI.Web", "D
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DiarioDelGelato.UI.Desktop", "DiarioDelGelato.UI.Desktop", "{5F65A0CD-9626-445A-AA6E-6464E10E1C19}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiarioDelGelato.Application", "Src\DiarioDelGelato.Application\DiarioDelGelato.Application.csproj", "{F0AFB42F-ADF1-480C-AE64-8017682DDE89}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DiarioDelGelato.Application", "Src\DiarioDelGelato.Application\DiarioDelGelato.Application.csproj", "{F0AFB42F-ADF1-480C-AE64-8017682DDE89}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiarioDelGelato.Domain", "Src\DiarioDelGelato.Domain\DiarioDelGelato.Domain.csproj", "{2C73DEB7-9DCC-4EBA-88DD-6B230B4064B3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DiarioDelGelato.Domain", "Src\DiarioDelGelato.Domain\DiarioDelGelato.Domain.csproj", "{2C73DEB7-9DCC-4EBA-88DD-6B230B4064B3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiarioDelGelato.Infrastructure.Persistance", "Src\DiarioDelGelato.Infrastructure.Persistance\DiarioDelGelato.Infrastructure.Persistance.csproj", "{C21F032F-1064-466D-BBEA-1776C9ECDD1E}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiarioDelGelato.Infrastructure.USBCommunication", "Src\DiarioDelGelato.Infrastructure.USBCommunication\DiarioDelGelato.Infrastructure.USBCommunication.csproj", "{25C695C3-1D0A-4C40-BEA6-AB03B2B8C8B9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DiarioDelGelato.Infrastructure.Persistance", "Src\DiarioDelGelato.Infrastructure.Persistance\DiarioDelGelato.Infrastructure.Persistance.csproj", "{C21F032F-1064-466D-BBEA-1776C9ECDD1E}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DiarioDelGelato.Infrastructure", "Src\DiarioDelGelato.Infrastructure\DiarioDelGelato.Infrastructure.csproj", "{484128E7-D081-460E-8F3A-39A0A026A1F6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiarioDelGelato.Application.UnitTests", "Tests\DiarioDelGelato.Application.UnitTests\DiarioDelGelato.Application.UnitTests.csproj", "{602416C6-B2F1-4A14-89FF-C25AF6D7D9FF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DiarioDelGelato.Application.UnitTests", "Tests\DiarioDelGelato.Application.UnitTests\DiarioDelGelato.Application.UnitTests.csproj", "{602416C6-B2F1-4A14-89FF-C25AF6D7D9FF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,10 +43,6 @@ Global
 		{C21F032F-1064-466D-BBEA-1776C9ECDD1E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C21F032F-1064-466D-BBEA-1776C9ECDD1E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C21F032F-1064-466D-BBEA-1776C9ECDD1E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{25C695C3-1D0A-4C40-BEA6-AB03B2B8C8B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{25C695C3-1D0A-4C40-BEA6-AB03B2B8C8B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{25C695C3-1D0A-4C40-BEA6-AB03B2B8C8B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{25C695C3-1D0A-4C40-BEA6-AB03B2B8C8B9}.Release|Any CPU.Build.0 = Release|Any CPU
 		{484128E7-D081-460E-8F3A-39A0A026A1F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{484128E7-D081-460E-8F3A-39A0A026A1F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{484128E7-D081-460E-8F3A-39A0A026A1F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -69,7 +63,6 @@ Global
 		{F0AFB42F-ADF1-480C-AE64-8017682DDE89} = {128A9EB1-0C94-4934-88EC-EF0130AA046F}
 		{2C73DEB7-9DCC-4EBA-88DD-6B230B4064B3} = {128A9EB1-0C94-4934-88EC-EF0130AA046F}
 		{C21F032F-1064-466D-BBEA-1776C9ECDD1E} = {128A9EB1-0C94-4934-88EC-EF0130AA046F}
-		{25C695C3-1D0A-4C40-BEA6-AB03B2B8C8B9} = {128A9EB1-0C94-4934-88EC-EF0130AA046F}
 		{484128E7-D081-460E-8F3A-39A0A026A1F6} = {128A9EB1-0C94-4934-88EC-EF0130AA046F}
 		{602416C6-B2F1-4A14-89FF-C25AF6D7D9FF} = {98178BD5-789E-4E2E-9F28-01B2F6FB9313}
 	EndGlobalSection

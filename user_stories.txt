@@ -1,22 +1,40 @@
 USER STORIES
+(lifecicle of the use stories are on the botton of this page)
+
+As a {type of user}, I want {goal} so that I {receive benefit}
+
+User Stories are supposed to be written in the following format:
+As a <Role / User Category>
+I want to <type what you want to achieve>
+so that <why would you want to achieve>
+
+As a traveler with family for vacation
+I would like to block my seats together on the same row
+So that I can enjoy the trip fully with my family and help my kids stay closer on flight
+
+-- DIARIO DEL GELATO --
 
 [atendente]
 
 as a clerk 
 i want to register gelato weighting in and out of vetrina
-so that i can write gelato diary 
+so that i can write gelato journal
+
+as a clerk 
+i want a list of gelatos flavors 
+so that i can select it instead of writing the flavour on gelato journal
 
 as a clerk
-i want to register casquinha do dia weight per user
-so that i can write it on gelato diary
+i want to register mine casquinha do dia weight 
+so that i can put the information on gelato journal
 
 as a clerk
 i would like to know gelato cuba number that I should bring to the starting display
-so that i could easily do this task in less time
+so that i could easily do this task easily
 
 as a clerk
 i would like to get a suggestion of which gelato should bring to replace the one going out
-so that i dont need to think about (so that i will be confident on my choice)
+so that i dont need to make that call
 
 [cliente]
 as a customer
@@ -81,4 +99,62 @@ as a manager
 i want to know gelato cost per flavour ordered list
 so that i can keep understand the ones with more impact on gelato cost
 
+[WHAT'S NEXT?]
+Product Owner:
 
+The Product Owner should then prioritize the stories. Maybe group them together into logical sets for a release plan.
+
+The Team:
+
+The development team goes through a process of grooming the stories. The team will ask the Product Owner questions about each story and get more information about what the story is trying to accomplish. The team will refine the acceptance criteria and provide a relative sizing. They may split the stories or break them into smaller stories so they can be done within a sprint. In another session the team may create sub-tasks for each story. At this point a story should be ready to start development
+
+Sprint Planning:
+
+The development team and the PO sit down together for sprint planning. The team figures out how much work they can take on during the sprint. They pull in stories one at a time from the backlog until they have filled their estimated time in the sprint. The team then should take another look at the full sprint plan and decide if it’s realistic and make any final adjustments. They then make a commitment on the work they will deliver for the sprint.
+
+Sprint:
+
+The development team writes the software for each story. They also test each one carefully ensuring it meets the acceptance criteria. They should also create repeatable and automated tests for each story whenever possible. As each story finishes they should notify the Product Owner and quickly review what’s done.
+
+Sprint Review:
+
+At sprint review the development team showcases/demonstrates their completed work to the Product Owner and other product stakeholders. The team also reviews other sprint progress and impediments to tell the story of what occurred over the sprint.
+
+During the sprint the team will take some more time to groom more potential stories for the upcoming sprint. You have to have a pipeline of groomed stories for upcoming sprints so you don’t spend sprint planning time grooming stories.
+
+Release:
+
+The Product Owner will gather enough valuable completed stories after a few sprints and decide it’s time to give it to the world. Time to do a software release. You should do these often. The longer you wait to do a release the more work it tends to be to perform the release tasks.
+
+Rinse and repeat until you have a product everyone loves or decide it’s not worthy and ditch it.
+
+There’s lots more to the process after writing a story, but these are the highlights.
+
+[LIFECILE]
+Generally speaking, the lifecycle of a good user story looks something like this:
+
+Initial Draft
+This is the first “shot” at capturing the story - “As an [X], I want to [Y], so that I can [Z]”. Sometimes it takes some iteration to get this right.
+
+Define Initial Acceptance Criteria
+After we have the story, we can define the Acceptance Criteria - this may include some light UX design/wireframes, specific performance needs, or even use cases to demo at the Review.
+
+Review Story w/ Stakeholders & Update if Needed
+Too many people just drop stories on their team backlogs without any review with stakeholders. The best PMs know that this is an essential feedback step to ensure that the user story as written actually describes the desired solution.
+
+Review and Size Story w/ Dev Team & Update if Needed
+Once we’ve got the Story where the stakeholders want it, we need to make sure that it’s where the Dev team wants it too — and if it is, then we should be able to get a rough story point size on it.
+
+Prioritize Story on Backlog
+Priority requires that we understand both the business priority and the technical complexity of the story — without using both of these, we’re setting ourselves up for issues down the line.
+
+Review Story During Grooming Sessions
+If the story stays on the backlog for any meaningful amount of time, it’s likely to get “stale” and need to be reviewed and possibly re-estimated — that’s precisely what the grooming sessions are for.
+
+Sprint Planning
+Once it’s time to start, we’ll pull the story into a sprint during planning, making sure that we do a deeper dive than any prior efforts to ensure that the team fully understands what’s being asked of them and what they’re being expected to deliver.
+
+Sprint Review
+At the end of the sprint, review the user story with the PM and other stakeholders, and take notes to see what improvements might still need to be on the backlog.
+
+Done

@@ -1,8 +1,16 @@
 {
   "version": 2,
-  "dgSpecHash": "Hx3014eewxuEAVcQgmh7JqDEEd8ZLF8jW1IhpDHI3/BRzgBtJh6WLVZpbnR5fDBYn77Wqqlt8vLZI1bYcGaoag==",
+  "dgSpecHash": "LxBZxpa06hgYep1uS1d99mDT2vZTGOkaTMd3sdt8Xgl/UgArmiGIhNMeN5wx0SzsmZER3Fg2s8yfm6ZhDXvG+w==",
   "success": true,
   "projectFilePath": "C:\\90Zgit\\Projects\\DiarioDelGelato\\Backend\\DiarioDelGelato\\Src\\DiarioDelGelato.Application\\DiarioDelGelato.Application.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\cidza\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
+    "C:\\Users\\cidza\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.0\\automapper.extensions.microsoft.dependencyinjection.12.0.0.nupkg.sha512",
+    "C:\\Users\\cidza\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
+    "C:\\Users\\cidza\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\6.0.0\\microsoft.extensions.dependencyinjection.abstractions.6.0.0.nupkg.sha512",
+    "C:\\Users\\cidza\\.nuget\\packages\\microsoft.extensions.options\\6.0.0\\microsoft.extensions.options.6.0.0.nupkg.sha512",
+    "C:\\Users\\cidza\\.nuget\\packages\\microsoft.extensions.primitives\\6.0.0\\microsoft.extensions.primitives.6.0.0.nupkg.sha512",
+    "C:\\Users\\cidza\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512"
+  ],
   "logs": []
 }

@@ -1,0 +1,3 @@
+﻿criar interface para os serviços referentes as ações da aplicação inclusive as que se referem as entidades, 
+como comandos e consultas (CRUD, vide Mukesh com Features/Command Query no conceito CQS) via repository
+CQRS é a sigla para Command and Queries Responsability Segregation
