@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DiarioDelGelato.Domain.Entities
 {
-    public class Gelato : AuditableBaseEntity
+    public class Gelato : BaseEntity
     {
         public string Name { get; set; }
         public string Description { get; set; }
