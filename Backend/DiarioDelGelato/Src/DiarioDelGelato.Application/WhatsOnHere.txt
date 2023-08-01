@@ -1,0 +1,4 @@
+﻿// Application layer is directly responsible for each use case in your system
+// So if you have any logic in your controller, move it to this layer
+
+// https://medium.com/@iamprovidence/mediatr-vs-services-or-why-slices-architecture-better-2e1eb4afae43

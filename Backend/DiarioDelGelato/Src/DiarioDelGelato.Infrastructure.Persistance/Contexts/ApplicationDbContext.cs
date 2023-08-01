@@ -16,5 +16,14 @@ namespace DiarioDelGelato.Infrastructure.Persistance.Contexts
         }
 
         public DbSet<Gelato> Gelatos { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            // Seed Gelatos
+            modelBuilder.Entity<Gelato>()
+                .HasData(
+                    new Gelato { Id=1, Name="Fragola", Description="Morango"}
+                );
+        }
     }
 }

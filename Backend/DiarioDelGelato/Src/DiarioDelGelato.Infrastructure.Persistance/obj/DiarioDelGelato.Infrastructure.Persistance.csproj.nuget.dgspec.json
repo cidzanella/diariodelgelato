@@ -84,10 +84,10 @@
       "version": "1.0.0",
       "restore": {
         "projectUniqueName": "C:\\90Zgit\\Projects\\DiarioDelGelato\\Backend\\DiarioDelGelato\\Src\\DiarioDelGelato.Domain\\DiarioDelGelato.Domain.csproj",
-        "projectName": "DiarioDelGelato.Domain",
+        "projectName": "DiarioDelGelato.Application",
         "projectPath": "C:\\90Zgit\\Projects\\DiarioDelGelato\\Backend\\DiarioDelGelato\\Src\\DiarioDelGelato.Domain\\DiarioDelGelato.Domain.csproj",
         "packagesPath": "C:\\Users\\cidza\\.nuget\\packages\\",
-        "outputPath": "C:\\90Zgit\\Projects\\DiarioDelGelato\\Backend\\DiarioDelGelato\\Src\\DiarioDelGelato.Domain\\obj\\",
+        "outputPath": "C:\\90Zgit\\Projects\\DiarioDelGelato\\Backend\\DiarioDelGelato\\Src\\DiarioDelGelato.Application\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
@@ -110,7 +110,11 @@
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "C:\\90Zgit\\Projects\\DiarioDelGelato\\Backend\\DiarioDelGelato\\Src\\DiarioDelGelato.Domain\\DiarioDelGelato.Domain.csproj": {
+                "projectPath": "C:\\90Zgit\\Projects\\DiarioDelGelato\\Backend\\DiarioDelGelato\\Src\\DiarioDelGelato.Domain\\DiarioDelGelato.Domain.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -191,19 +195,31 @@
           "dependencies": {
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[7.0.2, )"
+              "version": "[7.0.9, )"
             },
             "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[7.0.2, )"
+              "version": "[7.0.9, )"
+            },
+            "Microsoft.EntityFrameworkCore.InMemory": {
+              "target": "Package",
+              "version": "[7.0.9, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[7.0.9, )"
+            },
+            "Microsoft.EntityFrameworkCore.Sqlite": {
+              "target": "Package",
+              "version": "[7.0.9, )"
             },
             "Microsoft.EntityFrameworkCore.Tools": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[7.0.2, )"
+              "version": "[7.0.9, )"
             },
             "Microsoft.Extensions.Configuration": {
               "target": "Package",
@@ -211,7 +227,7 @@
             },
             "Microsoft.Extensions.Configuration.Binder": {
               "target": "Package",
-              "version": "[7.0.2, )"
+              "version": "[7.0.4, )"
             }
           },
           "imports": [

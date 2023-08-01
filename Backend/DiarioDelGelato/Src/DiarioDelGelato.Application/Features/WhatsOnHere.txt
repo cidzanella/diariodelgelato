@@ -1,0 +1,7 @@
+﻿This will have all the logic related to each Feature / Entity for each Entity on Domain.
+Use MediatR
+
+Ex:
+Gelato
+|- Commands
+|- Queries
