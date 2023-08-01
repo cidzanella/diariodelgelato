@@ -15,4 +15,9 @@
     <ProjectReference Include="..\DiarioDelGelato.Domain\DiarioDelGelato.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Features\Gelatos\Commands\" />
+    <Folder Include="Features\Gelatos\Queries\" />
+  </ItemGroup>
+
 </Project>
