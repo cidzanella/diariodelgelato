@@ -84,10 +84,10 @@
       "version": "1.0.0",
       "restore": {
         "projectUniqueName": "C:\\90Zgit\\Projects\\DiarioDelGelato\\Backend\\DiarioDelGelato\\Src\\DiarioDelGelato.Domain\\DiarioDelGelato.Domain.csproj",
-        "projectName": "DiarioDelGelato.Domain",
+        "projectName": "DiarioDelGelato.Application",
         "projectPath": "C:\\90Zgit\\Projects\\DiarioDelGelato\\Backend\\DiarioDelGelato\\Src\\DiarioDelGelato.Domain\\DiarioDelGelato.Domain.csproj",
         "packagesPath": "C:\\Users\\cidza\\.nuget\\packages\\",
-        "outputPath": "C:\\90Zgit\\Projects\\DiarioDelGelato\\Backend\\DiarioDelGelato\\Src\\DiarioDelGelato.Domain\\obj\\",
+        "outputPath": "C:\\90Zgit\\Projects\\DiarioDelGelato\\Backend\\DiarioDelGelato\\Src\\DiarioDelGelato.Application\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
@@ -110,7 +110,11 @@
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "C:\\90Zgit\\Projects\\DiarioDelGelato\\Backend\\DiarioDelGelato\\Src\\DiarioDelGelato.Domain\\DiarioDelGelato.Domain.csproj": {
+                "projectPath": "C:\\90Zgit\\Projects\\DiarioDelGelato\\Backend\\DiarioDelGelato\\Src\\DiarioDelGelato.Domain\\DiarioDelGelato.Domain.csproj"
+              }
+            }
           }
         },
         "warningProperties": {

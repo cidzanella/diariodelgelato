@@ -1,7 +1,7 @@
 {
   "version": 2,
-  "dgSpecHash": "Y7f869R5V7NjXRCi9bZMPFmLpB9cC7lUWYEowzqKAaAlFULE2WfVWEOwOts0FQIVtsAtDnaSDTXC0ZTFTRquRg==",
-  "success": true,
+  "dgSpecHash": "4CYjy/ZAth8riHxZ5bJO+lBJqJYZQ5GOZs20CCo4YQcec3M2kvZb9H8B1Gm6P387zmEK7e2kSxWmp26X8FnXeg==",
+  "success": false,
   "projectFilePath": "C:\\90Zgit\\Projects\\DiarioDelGelato\\Backend\\DiarioDelGelato\\Src\\DiarioDelGelato.Infrastructure.Persistance\\DiarioDelGelato.Infrastructure.Persistance.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\cidza\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
@@ -85,5 +85,15 @@
     "C:\\Users\\cidza\\.nuget\\packages\\system.threading.tasks.extensions\\4.5.4\\system.threading.tasks.extensions.4.5.4.nupkg.sha512",
     "C:\\Users\\cidza\\.nuget\\packages\\system.windows.extensions\\5.0.0\\system.windows.extensions.5.0.0.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1108",
+      "level": "Error",
+      "message": "Cycle detected. \r\n  DiarioDelGelato.Infrastructure.Persistance -> DiarioDelGelato.Application -> DiarioDelGelato.Application.",
+      "libraryId": "DiarioDelGelato.Application",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    }
+  ]
 }

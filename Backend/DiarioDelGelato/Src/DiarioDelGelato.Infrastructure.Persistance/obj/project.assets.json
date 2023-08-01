@@ -1436,23 +1436,13 @@
         "dependencies": {
           "AutoMapper": "12.0.1",
           "AutoMapper.Extensions.Microsoft.DependencyInjection": "12.0.0",
-          "DiarioDelGelato.Domain": "1.0.0"
+          "DiarioDelGelato.Application": "1.0.0"
         },
         "compile": {
           "bin/placeholder/DiarioDelGelato.Application.dll": {}
         },
         "runtime": {
           "bin/placeholder/DiarioDelGelato.Application.dll": {}
-        }
-      },
-      "DiarioDelGelato.Domain/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v6.0",
-        "compile": {
-          "bin/placeholder/DiarioDelGelato.Domain.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/DiarioDelGelato.Domain.dll": {}
         }
       }
     }
@@ -4035,11 +4025,6 @@
       "type": "project",
       "path": "../DiarioDelGelato.Application/DiarioDelGelato.Application.csproj",
       "msbuildProject": "../DiarioDelGelato.Application/DiarioDelGelato.Application.csproj"
-    },
-    "DiarioDelGelato.Domain/1.0.0": {
-      "type": "project",
-      "path": "../DiarioDelGelato.Domain/DiarioDelGelato.Domain.csproj",
-      "msbuildProject": "../DiarioDelGelato.Domain/DiarioDelGelato.Domain.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -4163,5 +4148,16 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1108",
+      "level": "Error",
+      "message": "Cycle detected. \r\n  DiarioDelGelato.Infrastructure.Persistance -> DiarioDelGelato.Application -> DiarioDelGelato.Application.",
+      "libraryId": "DiarioDelGelato.Application",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    }
+  ]
 }
