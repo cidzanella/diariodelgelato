@@ -18,8 +18,14 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DiarioDelGelato.UI", "Diari
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DiarioDelGelato.UI.Web", "DiarioDelGelato.UI.Web", "{134561ED-F9A1-442F-98F8-B37E855C7E24}"
+	ProjectSection(SolutionItems) = preProject
+		HowAboutBlazorServerApp.txt = HowAboutBlazorServerApp.txt
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DiarioDelGelato.UI.Desktop", "DiarioDelGelato.UI.Desktop", "{5F65A0CD-9626-445A-AA6E-6464E10E1C19}"
+	ProjectSection(SolutionItems) = preProject
+		IsThereRazonForDesktop.txt = IsThereRazonForDesktop.txt
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DiarioDelGelato.Application", "Src\DiarioDelGelato.Application\DiarioDelGelato.Application.csproj", "{F0AFB42F-ADF1-480C-AE64-8017682DDE89}"
 EndProject
@@ -30,6 +36,11 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DiarioDelGelato.Infrastructure", "Src\DiarioDelGelato.Infrastructure\DiarioDelGelato.Infrastructure.csproj", "{484128E7-D081-460E-8F3A-39A0A026A1F6}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DiarioDelGelato.Application.UnitTests", "Tests\DiarioDelGelato.Application.UnitTests\DiarioDelGelato.Application.UnitTests.csproj", "{602416C6-B2F1-4A14-89FF-C25AF6D7D9FF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DiarioDelGelato.UIApp", "DiarioDelGelato.UIApp", "{6E80D6E3-33EF-464A-B577-89B6883F2E91}"
+	ProjectSection(SolutionItems) = preProject
+		TestePage.html = TestePage.html
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -71,6 +82,7 @@ Global
 		{C21F032F-1064-466D-BBEA-1776C9ECDD1E} = {128A9EB1-0C94-4934-88EC-EF0130AA046F}
 		{484128E7-D081-460E-8F3A-39A0A026A1F6} = {128A9EB1-0C94-4934-88EC-EF0130AA046F}
 		{602416C6-B2F1-4A14-89FF-C25AF6D7D9FF} = {98178BD5-789E-4E2E-9F28-01B2F6FB9313}
+		{6E80D6E3-33EF-464A-B577-89B6883F2E91} = {128A9EB1-0C94-4934-88EC-EF0130AA046F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {595CAE98-B800-4A83-BD32-CDB44AC3D437}
