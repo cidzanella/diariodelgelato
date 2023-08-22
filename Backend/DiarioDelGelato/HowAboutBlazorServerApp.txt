@@ -1,0 +1,2 @@
+// how about developing a Blazor server web app?
+// should it be blazor server ou webassembly?
