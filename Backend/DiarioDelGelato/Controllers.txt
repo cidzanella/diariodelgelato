@@ -1,0 +1,19 @@
+// Sample ideal controller:
+
+[ApiController]
+[Route("orders")]
+public class OrderController : ControllerBase
+{
+    private readonly OrderAppService _appService;
+
+    public OrderController(OrderAppService appService)
+    {
+        _appService = appService;
+    }
+
+    [HttpGet]
+    public IEnumerable<OrderListDto> GetList()
+    {
+        return _appService.GetList();
+    }
+}

@@ -1,0 +1,11 @@
+﻿// CompletedEventHandler
+// CreatedEventHandler
+// DeletedEventHandler
+
+// Check Jason Taylor implementation
+
+// On Domain created BaseEvent that is mainly an INotification
+// Each Entity on Domain is a BaseEntity that has a DomainEvents list and AddDomainEvent, RemoveDomainEvent and ClearDomainEvent methods
+// Also in Domain an Events folder was created and has, for example, ProductCompletedEvent, ProductCreatedEvent, ProductDeletedEvent that inherits from BaseEvent
+
+// Events are created on Command SaveChanges and published by DispatchDomainEvents extension method of IMediator on the override of SaveChanges method that first dispatch events then save changes.
