@@ -8,8 +8,14 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{98178BD5-789E-4E2E-9F28-01B2F6FB9313}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DiarioDelGelato.WebAPI", "DiarioDelGelato.WebAPI", "{40536803-4ACC-4D58-BD58-EB8A357BF92C}"
+	ProjectSection(SolutionItems) = preProject
+		Controllers.txt = Controllers.txt
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DiarioDelGelato.UI", "DiarioDelGelato.UI", "{F96213A7-17AB-441A-8D45-6418C5D50A62}"
+	ProjectSection(SolutionItems) = preProject
+		Blazor.txt = Blazor.txt
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DiarioDelGelato.UI.Web", "DiarioDelGelato.UI.Web", "{134561ED-F9A1-442F-98F8-B37E855C7E24}"
 EndProject

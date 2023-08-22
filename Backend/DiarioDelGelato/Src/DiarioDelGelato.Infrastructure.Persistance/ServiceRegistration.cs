@@ -1,6 +1,7 @@
 ﻿using DiarioDelGelato.Infrastructure.Persistance.Contexts;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,7 +21,7 @@ namespace DiarioDelGelato.Infrastructure.Persistance
                 case "INMEMORYDATABASE":
                     services.AddDbContext<ApplicationDbContext>(options => 
                         {
-                            options.UseInMememoryDatabase(configuration.GetConnectionString("InMemoryConnection"));
+                            options.UseInMemoryDatabase(configuration.GetConnectionString("InMemoryConnection"));
                         });
                     break;
                 case "SQLSERVER":
@@ -30,24 +31,13 @@ namespace DiarioDelGelato.Infrastructure.Persistance
                     });
                     break;
                 case "SQLITE":
-                    services.AddDbContext<AppDbContext>(options =>
+                    services.AddDbContext<ApplicationDbContext>(options =>
                     {
                         options.UseSqlite(configuration.GetConnectionString("SQLiteConnection"));
                     });
                     break;
                 default:
                     break;
-            }
-
-            if (configuration.GetValue<bool>("UseInMemoryDatabase"))
-            {
-                configuration.GetConnectionString("sqlserver");
-            } else
-            {
-                if (configuration.GetValue<string>("DBProvider").ToLower().Equals("mssql"))
-                {
-
-                }
             }
         }
 

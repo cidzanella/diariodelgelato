@@ -1,0 +1,8 @@
+// how about using Blazor to create the WebApp (SPA)?
+// single-page applications (SPAs) perform most of the user interface logic in a web browser, communicating with the web server primarily using web APIs.
+
+// BUT: Atwood's Law: “Any application that can be written in JavaScript, will eventually be written in JavaScript.”
+
+// https://www.youtube.com/watch?v=OUUlO8fQOfE
+
+//https://anarsolutions.com/blazor-vs-angular-react-and-vue/#:~:text=While%20React%20continues%20to%20be,its%20community%20is%20growing%20rapidly.
