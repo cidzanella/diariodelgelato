@@ -22,7 +22,7 @@ namespace DiarioDelGelato.Infrastructure.Persistance.Contexts
             // Seed Gelatos
             modelBuilder.Entity<Gelato>()
                 .HasData(
-                    new Gelato { Id=1, Name="Fragola", Description="Morango"}
+                    new Gelato { Name= "Fragola", Description= "morango - 0% lactose - 0% gordura" }
                 );
         }
     }
