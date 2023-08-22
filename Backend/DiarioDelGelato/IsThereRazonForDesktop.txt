@@ -1,0 +1,3 @@
+// why should I need a desktop version?
+// for USB communication with the scale?
+// in this case seem like a dll for scale should be created or a service runing locally 
