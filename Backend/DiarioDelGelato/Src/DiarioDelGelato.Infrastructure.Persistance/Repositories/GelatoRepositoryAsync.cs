@@ -1,5 +1,6 @@
 ﻿using DiarioDelGelato.Application.Interfaces.Repositories;
 using DiarioDelGelato.Domain.Entities;
+using DiarioDelGelato.Infrastructure.Persistance.Contexts;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,8 +9,10 @@ using System.Threading.Tasks;
 
 namespace DiarioDelGelato.Infrastructure.Persistance.Repositories
 {
-    internal class GelatoRepositoryAsync : GenericRepositoryAsync<Gelato>, IGelatoRepositoryAsync
+    public class GelatoRepositoryAsync : GenericRepositoryAsync<Gelato>, IGelatoRepositoryAsync
     {
-    
+        public GelatoRepositoryAsync(ApplicationDbContext dbContext) : base(dbContext)
+        {
+        }
     }
 }
