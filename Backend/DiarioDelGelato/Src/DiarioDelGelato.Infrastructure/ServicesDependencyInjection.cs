@@ -1,5 +1,8 @@
 ﻿using DiarioDelGelato.Application.Interfaces.Services;
 using DiarioDelGelato.Infrastructure.Services;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+
 
 namespace DiarioDelGelato.Infrastructure
 {

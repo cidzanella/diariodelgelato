@@ -1,20 +1,19 @@
+using DiarioDelGelato.Infrastructure.Persistance;
+using DiarioDelGelato.Infrastructure.Persistance.Contexts;
+using DiarioDelGelato.WebAPI.Startup;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-
-builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+// REGISTER SERVICES HERE
+// Extension class Add services to the container.
+builder.Services.RegisterServices(builder.Configuration);
 
 var app = builder.Build();
 
+// REGISTER MIDDLEWARE HERE
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
+
+app.ConfigureSwagger();
 
 app.UseHttpsRedirection();
 

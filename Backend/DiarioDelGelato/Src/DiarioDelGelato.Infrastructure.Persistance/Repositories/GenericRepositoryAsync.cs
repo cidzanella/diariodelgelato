@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace DiarioDelGelato.Infrastructure.Persistance.Repositories
 {
     // implements using EF 
-    internal class GenericRepositoryAsync<T> : IGenericRepositoryAsync<T> where T : class
+    public class GenericRepositoryAsync<T> : IGenericRepositoryAsync<T> where T : class
     {
         private readonly ApplicationDbContext _dbContext;
 
