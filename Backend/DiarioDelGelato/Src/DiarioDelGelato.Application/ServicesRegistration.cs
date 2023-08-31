@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using DiarioDelGelato.Application.Interfaces.Services;
+using DiarioDelGelato.Application.Services;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using System;
 using System.Collections.Generic;
@@ -10,12 +12,13 @@ using System.Threading.Tasks;
 
 namespace DiarioDelGelato.Application
 {
-    public static class ServicesDependencyInjection
+    public static class ServicesRegistration
     {
         // services extensions for the application core
         public static void AddApplicationLayer(this IServiceCollection services )
         {
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
+            services.AddScoped<IGelatoService, GelatoService>();
         }
     }
 }

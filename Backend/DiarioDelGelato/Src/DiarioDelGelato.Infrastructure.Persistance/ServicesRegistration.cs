@@ -7,10 +7,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DiarioDelGelato.Application.Interfaces.Repositories;
+using DiarioDelGelato.Infrastructure.Persistance.Repositories;
 
 namespace DiarioDelGelato.Infrastructure.Persistance
 {
-    public static class ServiceRegistration
+    public static class ServicesRegistration
     {
         public static void AddPersistanceInfrastructure(this IServiceCollection services, IConfiguration configuration)
         {
@@ -39,6 +41,8 @@ namespace DiarioDelGelato.Infrastructure.Persistance
                 default:
                     break;
             }
+
+            services.AddScoped<IGelatoRepositoryAsync, GelatoRepositoryAsync>();
         }
 
     }

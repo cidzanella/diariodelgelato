@@ -30,10 +30,29 @@ namespace DiarioDelGelato.Infrastructure.Persistance.Repositories
 
         public async Task<T> AddAsync(T entity)
         {
-            await _dbContext.Set<T>().AddAsync(entity);
-            await _dbContext.SaveChangesAsync();
-            return entity;
+            try
+            {
+                await _dbContext.Set<T>().AddAsync(entity);
+                
+                int writtenEntriesCount = await _dbContext.SaveChangesAsync();
+                
+                if (writtenEntriesCount > 0)
+                {
+                    // is saved
+                    return entity;
+                }
+                else
+                {
+                    // is not saved
+                    return null;
+                }
+            }
+            catch (e)
+            {
+                // handle error here
+            }
         }
+        
         public async Task UpdateAsync(T entity)
         {
             _dbContext.Entry(entity).State = EntityState.Modified;

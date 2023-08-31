@@ -21,10 +21,27 @@ namespace DiarioDelGelato.Application.Services
             _gelatoRepository = gelatoRepository;
             _mapper = mapper;
         }
+
+        public async Task<IReadOnlyList<GelatoResponse>> ReadGelatosAsync()
+        {
+            return _mapper.Map<IReadOnlyList<GelatoResponse>>( await _gelatoRepository.GetAllAsync());
+        }
+        
+        public async Task<GelatoResponse> ReadGelatoAsync(int id)
+        {
+            return _mapper.Map<GelatoResponse>(await _gelatoRepository.GetByIdAsync(id));
+        }
+
         public async Task<GelatoResponse> CreateGelatoAsync(GelatoCreateRequest gelatoCreateRequest)
         {
             var gelato = _mapper.Map<Gelato>(gelatoCreateRequest);
             return _mapper.Map<GelatoResponse>(await _gelatoRepository.AddAsync(gelato));
+        }
+
+        public async Task<GelatoResponse> UpdateGelatoAsync(GelatoUpdateRequest gelatoUpdateRequest)
+        {
+            var gelato = _mapper.Map<Gelato>(gelatoUpdateRequest);
+            await _gelatoRepository.UpdateAsync(gelato);
         }
 
         public Task<GelatoResponse> DeleteGelatoAsync(int id)
@@ -32,19 +49,5 @@ namespace DiarioDelGelato.Application.Services
             throw new NotImplementedException();
         }
 
-        public Task<GelatoResponse> ReadGelatoAsync(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<IReadOnlyList<GelatoResponse>> ReadGelatosAsync()
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<GelatoResponse> UpdateGelatoAsync(GelatoUpdateRequest gelatoUpdateRequest)
-        {
-            throw new NotImplementedException();
-        }
     }
 }
