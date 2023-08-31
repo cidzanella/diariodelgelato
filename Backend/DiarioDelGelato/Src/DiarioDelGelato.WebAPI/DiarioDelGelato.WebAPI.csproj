@@ -21,6 +21,7 @@
   <ItemGroup>
     <ProjectReference Include="..\DiarioDelGelato.Application\DiarioDelGelato.Application.csproj" />
     <ProjectReference Include="..\DiarioDelGelato.Infrastructure.Persistance\DiarioDelGelato.Infrastructure.Persistance.csproj" />
+    <ProjectReference Include="..\DiarioDelGelato.Infrastructure\DiarioDelGelato.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

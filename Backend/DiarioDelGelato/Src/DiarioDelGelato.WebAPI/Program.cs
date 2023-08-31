@@ -1,5 +1,3 @@
-using DiarioDelGelato.Infrastructure.Persistance;
-using DiarioDelGelato.Infrastructure.Persistance.Contexts;
 using DiarioDelGelato.WebAPI.Startup;
 
 var builder = WebApplication.CreateBuilder(args);
