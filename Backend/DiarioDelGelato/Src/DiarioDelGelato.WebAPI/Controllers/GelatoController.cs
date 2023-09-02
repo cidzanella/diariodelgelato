@@ -55,7 +55,7 @@ namespace DiarioDelGelato.WebAPI.Controllers
         }
 
         // [Authorize]
-        [HttpPut("{id]")]
+        [HttpPut("{id}")]
         public async Task<ActionResult<GelatoResponseDto>> PutGelatoAsync(int id, [FromBody] GelatoUpdateRequestDto gelatoUpdate)
         {
             if (id != gelatoUpdate.Id)
@@ -78,7 +78,7 @@ namespace DiarioDelGelato.WebAPI.Controllers
         }
 
         // [Authorize]
-        [HttpDelete("{id]")]
+        [HttpDelete("{id}")]
         public async Task<ActionResult> DeleteGelatoAsync(int id)
         {
             try
