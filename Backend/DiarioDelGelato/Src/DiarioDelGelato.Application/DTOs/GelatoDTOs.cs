@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DiarioDelGelato.Application.DTOs
 {
-    public class GelatoCreateRequest
+    public class GelatoCreateRequestDto
     {
         [Required]
         public string Name { get; set; }
@@ -16,7 +16,7 @@ namespace DiarioDelGelato.Application.DTOs
         public string Description { get; set; }
     }
 
-    public class GelatoUpdateRequest
+    public class GelatoUpdateRequestDto
     {
         public int Id { get; set; }
         
@@ -25,7 +25,7 @@ namespace DiarioDelGelato.Application.DTOs
         public string Description { get; set; }
     }
 
-    public class GelatoResponse
+    public class GelatoResponseDto
     {
         public int Id { get; set; }
 

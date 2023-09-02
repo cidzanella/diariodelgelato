@@ -9,5 +9,6 @@ namespace DiarioDelGelato.Application.Interfaces.Repositories
 {
     public interface IGelatoRepositoryAsync : IGenericRepositoryAsync<Gelato>
     {
+        Task<bool> GelatoExists(string Name);
     }
 }

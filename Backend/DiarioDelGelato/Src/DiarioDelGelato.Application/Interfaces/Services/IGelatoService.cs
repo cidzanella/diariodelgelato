@@ -1,4 +1,5 @@
 ﻿using DiarioDelGelato.Application.DTOs;
+using DiarioDelGelato.Application.Wrappers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,11 +11,11 @@ namespace DiarioDelGelato.Application.Interfaces.Services
     // implements CRUD services using repository
     public interface IGelatoService
     {
-        Task<IReadOnlyList<GelatoResponse>> ReadGelatosAsync();
-        Task<GelatoResponse> ReadGelatoAsync(int id);
-        Task<GelatoResponse> CreateGelatoAsync(GelatoCreateRequest gelatoCreateRequest);
-        Task<GelatoResponse> UpdateGelatoAsync(GelatoUpdateRequest gelatoUpdateRequest);
-        Task<GelatoResponse> DeleteGelatoAsync(int id);
+        Task<IReadOnlyList<GelatoResponseDto>> ReadGelatosAsync();
+        Task<GelatoResponseDto> ReadGelatoAsync(int id);
+        Task<GelatoResponseDto> CreateGelatoAsync(GelatoCreateRequestDto gelatoCreateRequest);
+        Task UpdateGelatoAsync(GelatoUpdateRequestDto gelatoUpdateRequest);
+        Task DeleteGelatoAsync(int id);
 
     }
 }

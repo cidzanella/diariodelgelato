@@ -30,27 +30,11 @@ namespace DiarioDelGelato.Infrastructure.Persistance.Repositories
 
         public async Task<T> AddAsync(T entity)
         {
-            try
-            {
-                await _dbContext.Set<T>().AddAsync(entity);
+            await _dbContext.Set<T>().AddAsync(entity);
                 
-                int writtenEntriesCount = await _dbContext.SaveChangesAsync();
-                
-                if (writtenEntriesCount > 0)
-                {
-                    // is saved
-                    return entity;
-                }
-                else
-                {
-                    // is not saved
-                    return null;
-                }
-            }
-            catch (e)
-            {
-                // handle error here
-            }
+            int writtenEntriesCount = await _dbContext.SaveChangesAsync();
+
+            return writtenEntriesCount > 0 ? entity : null;
         }
         
         public async Task UpdateAsync(T entity)
@@ -63,7 +47,6 @@ namespace DiarioDelGelato.Infrastructure.Persistance.Repositories
         {
             _dbContext.Set<T>().Remove(entity);
             await _dbContext.SaveChangesAsync();
-
         }
 
     }

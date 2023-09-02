@@ -1,0 +1,4 @@
+﻿// For CRUD controllers create a Service
+// For others use  CQRS pattern and MediatR
+// https://sd.blackball.lv/en/articles/read/19137-mediatr-vs-services-or-why-slices-architecture-better
+// Mukesh uses MediatR for CRUD as well

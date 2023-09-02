@@ -9,9 +9,9 @@ namespace DiarioDelGelato.Application.Mappings
     {
         public GeneralProfile()
         {
-            CreateMap<GelatoCreateRequest, Gelato>();
-            CreateMap<Gelato, GelatoResponse>();
-            CreateMap<GelatoUpdateRequest, Gelato>();
+            CreateMap<GelatoCreateRequestDto, Gelato>();
+            CreateMap<Gelato, GelatoResponseDto>();
+            CreateMap<GelatoUpdateRequestDto, Gelato>();
         }
     }
 }

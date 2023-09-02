@@ -1,5 +1,7 @@
 ﻿using DiarioDelGelato.Application.DTOs;
+using DiarioDelGelato.Application.Exceptions;
 using DiarioDelGelato.Application.Interfaces.Services;
+using DiarioDelGelato.Domain.Entities;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -18,36 +20,80 @@ namespace DiarioDelGelato.WebAPI.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<IReadOnlyList<GelatoResponse>>> GetGelatosAsync()
+        public async Task<ActionResult<IReadOnlyList<GelatoResponseDto>>> GetGelatosAsync()
         {
-            var gelatos = await _gelatoService.ReadGelatosAsync();
-            return gelatos == null ? NotFound() : Ok(gelatos);
+            return Ok(await _gelatoService.ReadGelatosAsync());
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<GelatoResponse>> GetGelatoAsync(int id)
+        public async Task<ActionResult<GelatoResponseDto>> GetGelatoAsync(int id)
         {
-            var gelato = _gelatoService.ReadGelatoAsync(id);
-            return gelato == null ? NotFound() : Ok(gelato);
+            try
+            {
+                var gelato = await _gelatoService.ReadGelatoAsync(id);
+                return Ok(gelato);
+            }
+            catch (NotFoundException)
+            {
+                return NotFound();
+            }
         }
 
+        // [Authorize]
         [HttpPost]
-        [Authorize]
-        public async Task<ActionResult<GelatoResponse>> PostGelatoAsync([FromBody] GelatoCreateRequest gelatoCreate) 
+        public async Task<ActionResult<GelatoResponseDto>> PostGelatoAsync([FromBody] GelatoCreateRequestDto gelatoCreate) 
         {
-            var response = await _gelatoService.CreateGelatoAsync(gelatoCreate);
-            return response == null ? BadRequest() : Ok(response);
+            try
+            {
+                var response = await _gelatoService.CreateGelatoAsync(gelatoCreate);
+                return Ok(response);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest($"An error occurred when creating gelato {gelatoCreate.Name} on database: {ex.Message} - {ex.InnerException}");
+            }
         }
 
+        // [Authorize]
         [HttpPut("{id]")]
-        [Authorize]
-        public async Task<ActionResult<GelatoResponse>> PutGelatoAsync(int id, GelatoUpdateRequest gelatoUpdate)
+        public async Task<ActionResult<GelatoResponseDto>> PutGelatoAsync(int id, [FromBody] GelatoUpdateRequestDto gelatoUpdate)
         {
-            if (id != gelatoUpdate.id)
+            if (id != gelatoUpdate.Id)
+                return BadRequest();
+
+            try
+            {
+                await _gelatoService.UpdateGelatoAsync(gelatoUpdate);
+                return NoContent();
+            }
+            catch (NotFoundException)
+            {
+                return NotFound();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest($"An error occurred when updating gelato {gelatoUpdate.Name} on database: {ex.Message} - {ex.InnerException}");
+            }
+
         }
 
+        // [Authorize]
         [HttpDelete("{id]")]
-        [Authorize]
-
+        public async Task<ActionResult> DeleteGelatoAsync(int id)
+        {
+            try
+            {
+                await _gelatoService.DeleteGelatoAsync(id);
+                return NoContent();
+            }
+            catch (NotFoundException)
+            {
+                return NotFound();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest($"An error occurred when removing gelato {id} from database: {ex.Message} - {ex.InnerException}");
+            }
+        }
     }
 }

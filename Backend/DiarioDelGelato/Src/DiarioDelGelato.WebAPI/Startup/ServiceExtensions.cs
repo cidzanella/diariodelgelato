@@ -4,7 +4,7 @@ using DiarioDelGelato.Infrastructure.Persistance;
 
 namespace DiarioDelGelato.WebAPI.Startup
 {
-    public static class DependencyInjectionSetup
+    public static class ServiceExtensions
     {
         public static IServiceCollection RegisterServices (this IServiceCollection services, IConfiguration configuration)
         {

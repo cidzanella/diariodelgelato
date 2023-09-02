@@ -11,7 +11,9 @@ var app = builder.Build();
 // REGISTER MIDDLEWARE HERE
 // Configure the HTTP request pipeline.
 
-app.ConfigureSwagger();
+app.UseSwaggerExtension();
+
+app.UseExceptionHandlerMiddleware();
 
 app.UseHttpsRedirection();
 
