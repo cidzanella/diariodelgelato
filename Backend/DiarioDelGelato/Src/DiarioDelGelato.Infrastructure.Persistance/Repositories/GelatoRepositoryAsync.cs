@@ -19,9 +19,14 @@ namespace DiarioDelGelato.Infrastructure.Persistance.Repositories
             _dbContext = dbContext;
         }
 
-        public async Task<bool> GelatoExists(string Name)
+        public async Task<bool> GelatoExists(string name)
         {
-            return await _dbContext.Gelatos.AnyAsync(g => g.Name.ToLower() == Name.ToLower());
+            return await _dbContext.Gelatos.AsNoTracking().AnyAsync(g => g.Name.ToLower() == name.ToLower());
+        }
+
+        public async Task<bool> GelatoExists(int id)
+        {
+            return await _dbContext.Gelatos.AsNoTracking().AnyAsync(g => g.Id == id);
         }
     }
 }

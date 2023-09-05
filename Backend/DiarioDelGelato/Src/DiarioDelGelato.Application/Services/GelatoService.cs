@@ -53,7 +53,7 @@ namespace DiarioDelGelato.Application.Services
 
         public async Task UpdateGelatoAsync(GelatoUpdateRequestDto gelatoUpdateRequest)
         {
-            if (_gelatoRepository.GetByIdAsync(gelatoUpdateRequest.Id) == null)
+            if (await _gelatoRepository.GelatoExists(gelatoUpdateRequest.Id) == false)
                 throw new NotFoundException();
 
             var gelato = _mapper.Map<Gelato>(gelatoUpdateRequest);

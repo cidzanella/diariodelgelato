@@ -37,11 +37,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DiarioDelGelato.Infrastruct
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DiarioDelGelato.Application.UnitTests", "Tests\DiarioDelGelato.Application.UnitTests\DiarioDelGelato.Application.UnitTests.csproj", "{602416C6-B2F1-4A14-89FF-C25AF6D7D9FF}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DiarioDelGelato.UIApp", "DiarioDelGelato.UIApp", "{6E80D6E3-33EF-464A-B577-89B6883F2E91}"
-	ProjectSection(SolutionItems) = preProject
-		TestePage.html = TestePage.html
-	EndProjectSection
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DiarioDelGelato.WebAPI", "Src\DiarioDelGelato.WebAPI\DiarioDelGelato.WebAPI.csproj", "{2A2AD197-603E-4BB4-A706-6F8160667BA5}"
 EndProject
 Global
@@ -88,7 +83,6 @@ Global
 		{C21F032F-1064-466D-BBEA-1776C9ECDD1E} = {128A9EB1-0C94-4934-88EC-EF0130AA046F}
 		{484128E7-D081-460E-8F3A-39A0A026A1F6} = {128A9EB1-0C94-4934-88EC-EF0130AA046F}
 		{602416C6-B2F1-4A14-89FF-C25AF6D7D9FF} = {98178BD5-789E-4E2E-9F28-01B2F6FB9313}
-		{6E80D6E3-33EF-464A-B577-89B6883F2E91} = {128A9EB1-0C94-4934-88EC-EF0130AA046F}
 		{2A2AD197-603E-4BB4-A706-6F8160667BA5} = {40536803-4ACC-4D58-BD58-EB8A357BF92C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
