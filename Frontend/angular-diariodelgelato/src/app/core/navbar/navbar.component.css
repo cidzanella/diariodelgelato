@@ -1,0 +1,13 @@
+.navbar {
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    background-color: black;
+}
+
+.dropdown-menu, .dropdown-item {
+    background-color: black;
+    color: lightgray;
+}
+
+.dropdown {
+    cursor: pointer;
+}

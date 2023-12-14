@@ -2,6 +2,13 @@ USER STORIES
 (lifecicle of the use stories are on the botton of this page)
 
 As a {type of user}, I want {goal} so that I {receive benefit}
+Other option:
+As a(n) [user type]
+In order to [extract business value]
+When I [take some action]
+  (and [take some other action])
+Then I [observe an outcome]
+  (and I [observe another outcome])
 
 User Stories are supposed to be written in the following format:
 As a <Role / User Category>
@@ -12,28 +19,79 @@ As a traveler with family for vacation
 I would like to block my seats together on the same row
 So that I can enjoy the trip fully with my family and help my kids stay closer on flight
 
+Questions to ask while writing user stories
+Who is the user you are focusing on? This should be defined
+What is the goal of the user in this story?
+What should happen when the user is successful in their goal?
+What should happen when the user isn’t successful in their goal?
+What is the acceptance criteria for your user story?
+
+[Story details]
+User story additional information:
+1.What steps need to be taken to accomplish this task
+2.When the task is executed, what happens? What does the user see?
+3.How will a developer know when the user story has been successfully accomplished?
+
+[Acceptance criteria]
+Writen in the Given/When/Then style
+The given/when/then format follows the template: 
+“Scenario: (explain scenario). 
+Given (how things begin), when (action taken), then (outcome of taking action).”
+
+Example:
+You buy a car:
+
+DoD (Definition of "Done"): car passes the official technical checks and tests and is qualified to hit the road.
+
+Acceptance Criteria: the trunk size is above X liters, it can do at least Y MPG, has built-in Bluetooth headset and is red.
+
+DoD in software development:
+Code peer reviewed?
+Code completed?
+Code reviewed?
+Code checked-in?
+Unit tests passed?
+Functional tests passed?
+Acceptance tests completed?
+Product Owner reviewed and accepted?
+
+[User story with Acceptance Criteria sample]
+User story: As a user, I want to be able to recover the password to my account, so that I will be able to access my account in case I forgot the password.
+
+Acceptance Criteria:
+Scenario: Forgot password
+Given: The user navigates to the login page
+When: The user selects <forgot password> option
+And: Enters a valid email to receive a link for password recovery
+Then: The system sends the link to the entered email
+Given: The user receives the link via the email
+When: The user navigates through the link received in the email
+Then: The system enables the user to set a new password
+https://www.altexsoft.com/blog/acceptance-criteria-purposes-formats-and-best-practices/
+
 -- DIARIO DEL GELATO --
 
 [atendente]
-
+title: as a clerk, i can write gelato journal
 as a clerk 
 i want to register gelato weighting in and out of vetrina
 so that i can write gelato journal
 
-as a clerk 
+title: as a clerk, i can see gelato flavors list
 i want a list of gelatos flavors 
 so that i can select it instead of writing the flavour on gelato journal
 
-as a clerk
+title: as a clerk, i can register casquinha do dia
 i want to register mine casquinha do dia weight 
 so that i can put the information on gelato journal
 
+title: as a clerk, i can get suggested starting vetrina 
 as a clerk
 i would like to know gelato cuba number that I should bring to the starting display
 so that i could easily do this task easily
 
-as a clerk
-i would like to get a suggestion of which gelato should bring to replace the one going out
+title: as a clerk, i can get replacing gelato suggestion
+as a clerk i would like to get a suggestion of which gelato should bring to replace the one going out
 so that i dont need to make that call
 
 [cliente]

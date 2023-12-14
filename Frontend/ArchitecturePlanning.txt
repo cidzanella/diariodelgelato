@@ -1,0 +1,56 @@
+[diariodelgelato app features]
+https://docs.google.com/presentation/d/1cJ2BDgmMwSUOEqs1KfhxfUsmdsm9Q1fy8Bl0truFlFM/
+
+mass bad project to be refactored:
+https://github.com/jmcooper/angular-best-practices/tree/master/src
+
+reference project:
+https://github.com/DanWahlin/Angular-JumpStart/tree/main/src/app
+
+lazzy loading:
+https://medium.com/@jaydeepvpatil225/feature-module-with-lazy-loading-in-angular-15-53bb8e15d193#:~:text=In%20Angular%2C%20a%20feature%20module,and%20functionality%20within%20an%20application.&text=It%20contains%20a%20group%20of,and%20manage%20the%20application%20codebase.
+s
+areas (by Dan Wahlin):
+App Overview
+App Features
+Domain Security
+Domain Rules
+Logging
+Services / Communication
+Data Models
+Feature Components
+Shared Funcionality
+
+home feature
+- presents Perdonato 
+
+gelatos feature
+- display gelatos flavor list
+
+gelato feature
+- CRUD gelato 
+- display gelato details
+
+vetrina del giorno feature
+- display live gelatos vetrina with flavors current on vetrina
+
+vetrina journal 
+movement feature
+- gelato check-in/out operation with timestamp, gelato pan number and weight
+journal
+- journal summary: display daily gelatos consumption in grams per flavor  
+- filter (daily, monthly, annualy)
+
+scale feature
+- input and display scale weight
+
+ 
+login feature
+- support user login/logout
+
+
+future check authorization by profiles:
+-clerk
+-customer
+-maker
+-manager

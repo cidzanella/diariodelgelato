@@ -1,0 +1,12 @@
+{
+  "profiles": {
+    "DiarioDelGelato.Domain": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "https://localhost:15543;http://localhost:15544"
+    }
+  }
+}

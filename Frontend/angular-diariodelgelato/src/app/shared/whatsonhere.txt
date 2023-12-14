@@ -1,0 +1,2 @@
+may have components ui shared between features
+utils would have utilities functions that are used for different features 

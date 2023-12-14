@@ -14,6 +14,7 @@ namespace DiarioDelGelato.WebAPI.Startup
             services.AddControllers();
             services.AddEndpointsApiExplorer();
             services.AddSwaggerGen();
+            services.AddCors();
             return services;
         }
     }

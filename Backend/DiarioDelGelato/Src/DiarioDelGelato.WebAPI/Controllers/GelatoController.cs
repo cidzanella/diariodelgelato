@@ -68,7 +68,7 @@ namespace DiarioDelGelato.WebAPI.Controllers
             }
             catch (NotFoundException)
             {
-                return NotFound();
+                return NotFound();  
             }
             catch (Exception ex)
             {
