@@ -34,6 +34,9 @@ gelato feature
 vetrina del giorno feature
 - display live gelatos vetrina with flavors current on vetrina
 
+cono del giorno feature
+- weight and register clerk's daily gelato (signed by password, may be different from operator logged)
+
 vetrina journal 
 movement feature
 - gelato check-in/out operation with timestamp, gelato pan number and weight
@@ -41,8 +44,11 @@ journal
 - journal summary: display daily gelatos consumption in grams per flavor  
 - filter (daily, monthly, annualy)
 
-scale feature
+bilancia feature
 - input and display scale weight
+
+bilancia diagnostic feature
+- admin tool for testing and diagnosing usb scale
 
  
 login feature

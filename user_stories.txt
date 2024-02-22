@@ -94,6 +94,10 @@ title: as a clerk, i can get replacing gelato suggestion
 as a clerk i would like to get a suggestion of which gelato should bring to replace the one going out
 so that i dont need to make that call
 
+as a clerk
+i wand to get alerts for scale tare based on weighting process (casquinha do dia, in out vitrine)
+so that i won't get the wrong weight
+
 [cliente]
 as a customer
 i want to know the live gelato display flavours available
@@ -105,6 +109,10 @@ i want to know gelato quantity per flavour
 so that i can figure out the ones to produce
 
 [gerente]
+as a manager
+i want to know weighting time of 'casquinha do dia'
+so that i can check if it was on the right work break
+
 as a manager
 i want to know gelato consumption
 so that i can calculate daily monthly annualy gelato cost

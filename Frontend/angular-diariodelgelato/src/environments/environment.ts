@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  apiURL: 'https://localhost:5005/api/'
+  diarioDelGelatoApiURL: 'https://localhost:5005/api/',
+  scaleApiURL: 'http://localhost:5533/dymoscaleapi/',
 };
 
 /*

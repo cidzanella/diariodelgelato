@@ -11,7 +11,7 @@ import { Gelato } from '../models/gelato';
 })
 export class GelatoService {
 
-  baseURL = environment.apiURL;
+  baseURL = environment.diarioDelGelatoApiURL;
 
   //app state: service storage
   gelatos: Gelato[] = [];

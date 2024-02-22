@@ -13,7 +13,6 @@ var app = builder.Build();
 
 app.UseSwaggerExtension();
 
-
 app.UseCors(opt => opt.AllowAnyHeader().AllowAnyMethod().WithOrigins("http://localhost:4210")); //angular.json
 
 app.UseExceptionHandlerMiddleware();

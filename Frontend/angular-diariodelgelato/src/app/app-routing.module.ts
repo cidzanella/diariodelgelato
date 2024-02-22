@@ -9,6 +9,8 @@ const app_routes: Routes = [
   {path: 'gelato', loadChildren: () => import('./features/gelato/gelato.module').then(m => m.GelatoModule)},
   {path: 'vetrinadelgiorno', loadChildren: () => import('./features/vetrinadelgiorno/vetrinadelgiorno.module').then(m => m.VetrinadelgiornoModule)},
   {path: 'bilancia', loadChildren: () => import('./features/bilancia/bilancia.module').then(m => m.BilanciaModule)},
+  {path: 'bilanciadiagnostic', loadChildren: () => import('./features/bilanciadiagnostic/bilanciadiagnostic.module').then(m => m.BilanciadiagnosticModule)},
+  {path: 'conodelgiorno', loadChildren: () => import('./features/conodelgiorno/conodelgiorno.module').then(m=>m.ConodelgiornoModule)},
 ];
 
 @NgModule({

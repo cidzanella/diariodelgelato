@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
@@ -9,6 +9,9 @@ import { SharedModule } from './shared/shared.module';
 import { LoginComponent } from './features/login/login.component';
 import { CoreModule } from './core/core.module';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { ErrorInterceptor } from './core/interceptors/error.interceptor';
+import { ToastrModule } from 'ngx-toastr';
+
 
 @NgModule({
   imports: [
@@ -18,13 +21,19 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
     AppRoutingModule,
     CoreModule,
     SharedModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot({
+      positionClass: 'toast-bottom-full-width'
+    }), 
     BsDropdownModule.forRoot()
   ],
   declarations: [
     AppComponent,
     LoginComponent,
   ],
-  providers: [],
+  providers: [ 
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

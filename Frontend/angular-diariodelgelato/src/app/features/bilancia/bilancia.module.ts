@@ -12,7 +12,7 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
     BilanciaRoutingModule,
     BsDropdownModule
   ],
-  exports: []
+  exports: [BilanciaRoutingModule.components]
 
 })
 export class BilanciaModule { }
