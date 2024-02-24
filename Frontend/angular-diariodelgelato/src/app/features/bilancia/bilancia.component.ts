@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
+
 import { BilanciaService } from './services/bilancia.service';
 import { BilanciaResponse } from './models/bilancia-response';
-import { ToastrService } from 'ngx-toastr';
-import { throwError } from 'rxjs';
 
 enum ScaleStatus {
   Fault = 1,
@@ -21,6 +21,8 @@ enum ScaleStatus {
   styleUrls: ['./bilancia.component.css']
 })
 export class BilanciaComponent implements OnInit {
+
+  @Output() weightRead = new EventEmitter<number>();
 
   statusMessage: string | undefined;
   weightFromScale: number = 0;
@@ -46,6 +48,9 @@ export class BilanciaComponent implements OnInit {
       if (response.weight !=0 && !response.readingInGrams) {
         this.statusMessage = "Verifique a unidade de peso da balança. Pressione a tecla [kg/lb] na balança para selecionar gramas. A letra 'g' irá aparecer no canto superior direito do display.";
         this.weightFromScale = -1; //if weight scale was not in grams discard the reading
+      } else {
+        // raise event passing weight read from scale
+        this.onWeightRead(response.weight);
       }
     } else {
       this.weightFromScale = 0;
@@ -63,12 +68,10 @@ export class BilanciaComponent implements OnInit {
             break;
         }
       }
-
-      // <div *ngIf="!bilanciaResponse?.success" class="small alert-danger text-center">{{bilanciaResponse?.message}}</div> 
-      // <div *ngIf="!errorMessage && !bilanciaResponse?.connected && showStatusMessage" class="small alert-warning text-center">Balança desconectada! Verifique que esteja conectada a USB e ligada - tecla mais a esquerda da balança.</div> 
-      // <div *ngIf="bilanciaResponse?.success && bilanciaResponse?.weight!=0 && !bilanciaResponse?.readingInGrams" class="small alert-warning text-center">Verifique a unidade de peso da balança. Pressione a tecla kg/lb na balança para selecionar gramas. A letra 'g' irá aparecer no canto superior direito do display.</div>
-
     }
+  }
 
+  onWeightRead(weight: number){
+    this.weightRead.emit(weight);
   }
 }

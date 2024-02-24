@@ -7,9 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BilanciadiagnosticComponent implements OnInit {
 
+  weightsFromScale: number[] = [];
+
   constructor() { }
 
   ngOnInit(): void {
   }
-
+  
+  gotWeightFromScale(weight: number){
+    this.weightsFromScale.push(weight);
+  }
 }

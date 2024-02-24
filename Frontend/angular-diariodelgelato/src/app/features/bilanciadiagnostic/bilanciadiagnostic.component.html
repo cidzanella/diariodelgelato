@@ -6,17 +6,13 @@
         <div class="card-text">
             Conecte a balança DYMO 25 na porta USB do notebook para um teste de conexão e diagnóstico.
         </div>
-        <diarioapp-bilancia></diarioapp-bilancia>
+        <diarioapp-bilancia (weightRead)="gotWeightFromScale($event)"></diarioapp-bilancia>
         <table class="table table-striped">
             <tbody>
-                <tr><td>1.890g</td></tr>
-                <tr><td>2.420g</td></tr>
-                <tr><td>1.560g</td></tr>
-                <tr><td>978g</td></tr>
+                <tr *ngFor="let weight of weightsFromScale">
+                    <td>{{weight}}</td>
+                </tr>
             </tbody>
         </table>
-    </div>
-    <div class="card-footer">
-        <p>Status Disconnected</p>
     </div>
 </div>
