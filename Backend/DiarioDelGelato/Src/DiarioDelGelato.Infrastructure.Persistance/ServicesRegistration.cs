@@ -14,7 +14,7 @@ namespace DiarioDelGelato.Infrastructure.Persistance
 {
     public static class ServicesRegistration
     {
-        public static void AddPersistanceInfrastructure(this IServiceCollection services, IConfiguration configuration)
+        public static IServiceCollection AddPersistanceInfrastructure(this IServiceCollection services, IConfiguration configuration)
         {
             string ?dbProvider = configuration.GetValue<string>("DBProvider").ToUpper();
 
@@ -43,6 +43,9 @@ namespace DiarioDelGelato.Infrastructure.Persistance
             }
 
             services.AddScoped<IGelatoRepositoryAsync, GelatoRepositoryAsync>();
+            services.AddScoped<IConoDelGiornoRepositoryAsync, ConoDelGiornoRespositoryAsync>();
+            return services;
+
         }
 
     }

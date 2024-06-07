@@ -3,7 +3,7 @@ using DiarioDelGelato.WebAPI.Startup;
 var builder = WebApplication.CreateBuilder(args);
 
 // REGISTER SERVICES HERE
-// Extension class Add services to the container.
+// Extension class Add services to the container. Configuration parameters comes from appsettings.json.
 builder.Services.RegisterServices(builder.Configuration);
 
 var app = builder.Build();

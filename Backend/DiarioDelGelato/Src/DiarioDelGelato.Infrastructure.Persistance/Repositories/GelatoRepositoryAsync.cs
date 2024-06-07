@@ -1,6 +1,7 @@
 ﻿using DiarioDelGelato.Application.Interfaces.Repositories;
 using DiarioDelGelato.Domain.Entities;
 using DiarioDelGelato.Infrastructure.Persistance.Contexts;
+using DiarioDelGelato.Infrastructure.Persistance.Exceptions;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -19,14 +20,29 @@ namespace DiarioDelGelato.Infrastructure.Persistance.Repositories
             _dbContext = dbContext;
         }
 
-        public async Task<bool> GelatoExists(string name)
+        public async Task<bool> GelatoExistsAsync(string name)
         {
-            return await _dbContext.Gelatos.AsNoTracking().AnyAsync(g => g.Name.ToLower() == name.ToLower());
+            try
+            {
+                return await _dbContext.Gelatos.AsNoTracking().AnyAsync(g => g.Name.ToLower() == name.ToLower());
+            }
+            catch (Exception e)
+            {
+                throw new RepositoryException($"Error checking Gelato exists on database - {e.Message}", e);
+            }
         }
 
-        public async Task<bool> GelatoExists(int id)
+        public async Task<bool> GelatoExistsAsync(int id)
         {
-            return await _dbContext.Gelatos.AsNoTracking().AnyAsync(g => g.Id == id);
+            try
+            {
+                return await _dbContext.Gelatos.AsNoTracking().AnyAsync(g => g.Id == id);
+
+            }
+            catch (Exception e)
+            {
+                throw new RepositoryException($"Error checking Gelato exists on database - {e.Message}", e);
+            }   
         }
     }
 }

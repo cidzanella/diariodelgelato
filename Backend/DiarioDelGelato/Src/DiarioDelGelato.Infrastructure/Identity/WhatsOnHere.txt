@@ -1,1 +1,17 @@
 ﻿// https://medium.com/geekculture/clean-architecture-jwt-token-authentication-in-rest-api-using-asp-net-core-identity-639e4a8f3900
+
+// C:\90Zgit\CleanArchitectureSamples\JasonTaylor\CleanArchitecture-main\CleanArchitecture-main\src\Infrastructure\Identity
+
+
+tokenService: token generation and validation - in the application layer
+
+userService: CRUD for app user User and pass generation
+
+authenticationService: user login, logout 
+(the logout logic involves managing the lifecycle of the JWT tokens on both the server and the client side:
+blacklist the token
+clear stored token on the frontend)
+
+tokenDto: token return to frontend
+
+AddIdentityServices: authorization JWT token validation -  services.AddAuthentication

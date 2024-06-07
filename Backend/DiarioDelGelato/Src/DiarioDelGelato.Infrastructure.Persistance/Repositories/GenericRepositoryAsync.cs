@@ -1,5 +1,6 @@
 ﻿using DiarioDelGelato.Application.Interfaces.Repositories;
 using DiarioDelGelato.Infrastructure.Persistance.Contexts;
+using DiarioDelGelato.Infrastructure.Persistance.Exceptions;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -20,33 +21,71 @@ namespace DiarioDelGelato.Infrastructure.Persistance.Repositories
         }
         public async Task<T> GetByIdAsync(int id)
         {
-            return await _dbContext.Set<T>().FindAsync(id);
+            try
+            {
+                return await _dbContext.Set<T>().FindAsync(id);
+            }
+            catch (Exception e)
+            {
+                throw new RepositoryException($"Error reading data from {nameof(T)} - {e.Message}", e);
+            }
         }
 
         public async Task<IReadOnlyList<T>> GetAllAsync()
         {
-            return await _dbContext.Set<T>().ToListAsync();
+            try
+            {
+                return await _dbContext.Set<T>().ToListAsync();
+            }
+            catch (Exception e)
+            {
+                throw new RepositoryException($"Error reading data from {nameof(T)} - {e.Message}", e);
+            }
         }
 
         public async Task<T> AddAsync(T entity)
         {
-            await _dbContext.Set<T>().AddAsync(entity);
-                
-            int writtenEntriesCount = await _dbContext.SaveChangesAsync();
+            try
+            {
+                await _dbContext.Set<T>().AddAsync(entity);
 
-            return writtenEntriesCount > 0 ? entity : null;
+                int writtenEntriesCount = await _dbContext.SaveChangesAsync();
+
+                return writtenEntriesCount > 0 ? entity : null;
+
+            }
+            catch (Exception e)
+            {
+                throw new RepositoryException($"Error adding record to {nameof(T)} - {e.Message}", e);
+            }
         }
         
         public async Task UpdateAsync(T entity)
         {
-            _dbContext.Entry(entity).State = EntityState.Modified;
-            await _dbContext.SaveChangesAsync();
+            try
+            {
+                _dbContext.Entry(entity).State = EntityState.Modified;
+                await _dbContext.SaveChangesAsync();
+
+            }
+            catch (Exception e)
+            {
+                throw new RepositoryException($"Error updating data to {nameof(T)} - {e.Message}", e);
+            }        
         }
 
         public async Task DeleteAsync(T entity)
         {
-            _dbContext.Set<T>().Remove(entity);
-            await _dbContext.SaveChangesAsync();
+            try
+            {
+                _dbContext.Set<T>().Remove(entity);
+                await _dbContext.SaveChangesAsync();
+
+            }
+            catch (Exception e)
+            {
+                throw new RepositoryException($"Error removing record from {nameof(T)} - {e.Message}", e);
+            }        
         }
 
     }

@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
-using DiarioDelGelato.Application.DTOs;
+using DiarioDelGelato.Application.DTOs.Features.GelatoDTOs;
 using DiarioDelGelato.Application.Exceptions;
 using DiarioDelGelato.Application.Interfaces.Repositories;
-using DiarioDelGelato.Application.Interfaces.Services;
+using DiarioDelGelato.Application.Interfaces.Services.Entities;
 using DiarioDelGelato.Application.Wrappers;
 using DiarioDelGelato.Domain.Entities;
 using System;
@@ -11,7 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DiarioDelGelato.Application.Services
+namespace DiarioDelGelato.Application.Services.Features
 {
     /// 
     /// Either use GelatoService or MediatR with commands and queries on Features/Gelatos
@@ -29,9 +29,9 @@ namespace DiarioDelGelato.Application.Services
 
         public async Task<IReadOnlyList<GelatoResponseDto>> ReadGelatosAsync()
         {
-            return _mapper.Map<IReadOnlyList<GelatoResponseDto>>( await _gelatoRepository.GetAllAsync());
+            return _mapper.Map<IReadOnlyList<GelatoResponseDto>>(await _gelatoRepository.GetAllAsync());
         }
-        
+
         public async Task<GelatoResponseDto> ReadGelatoAsync(int id)
         {
             var gelato = await _gelatoRepository.GetByIdAsync(id);
@@ -39,12 +39,12 @@ namespace DiarioDelGelato.Application.Services
             if (gelato == null)
                 throw new NotFoundException();
 
-             return _mapper.Map<GelatoResponseDto>(gelato);
+            return _mapper.Map<GelatoResponseDto>(gelato);
         }
 
         public async Task<GelatoResponseDto> CreateGelatoAsync(GelatoCreateRequestDto gelatoCreateRequest)
         {
-            if (await _gelatoRepository.GelatoExists(gelatoCreateRequest.Name))
+            if (await _gelatoRepository.GelatoExistsAsync(gelatoCreateRequest.Name))
                 throw new Exception($"Duplicated gelato name. {gelatoCreateRequest.Name} already exists on database.");
 
             var gelato = _mapper.Map<Gelato>(gelatoCreateRequest);
@@ -53,7 +53,7 @@ namespace DiarioDelGelato.Application.Services
 
         public async Task UpdateGelatoAsync(GelatoUpdateRequestDto gelatoUpdateRequest)
         {
-            if (await _gelatoRepository.GelatoExists(gelatoUpdateRequest.Id) == false)
+            if (await _gelatoRepository.GelatoExistsAsync(gelatoUpdateRequest.Id) == false)
                 throw new NotFoundException();
 
             var gelato = _mapper.Map<Gelato>(gelatoUpdateRequest);
@@ -67,7 +67,7 @@ namespace DiarioDelGelato.Application.Services
             if (gelato == null)
                 throw new NotFoundException();
             await _gelatoRepository.DeleteAsync(gelato);
-            
+
         }
 
     }

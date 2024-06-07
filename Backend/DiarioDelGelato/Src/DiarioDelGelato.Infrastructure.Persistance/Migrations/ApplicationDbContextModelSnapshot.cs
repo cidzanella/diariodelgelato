@@ -17,6 +17,32 @@ namespace DiarioDelGelato.Infrastructure.Persistance.Migrations
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "7.0.10");
 
+            modelBuilder.Entity("DiarioDelGelato.Domain.Entities.ConoDelGiorno", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("GelatoAId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("GelatoBId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("TeamMemberId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<long>("Timestamp")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("Weight")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ConoDelGiornoJournal");
+                });
+
             modelBuilder.Entity("DiarioDelGelato.Domain.Entities.Gelato", b =>
                 {
                     b.Property<int>("Id")
@@ -226,6 +252,83 @@ namespace DiarioDelGelato.Infrastructure.Persistance.Migrations
                             Id = 31,
                             Description = "aquele que lembra um danoninho",
                             Name = "Yogurt alla Fragola"
+                        });
+                });
+
+            modelBuilder.Entity("DiarioDelGelato.Domain.Entities.TeamMember", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER")
+                        .HasAnnotation("SqlServer:IdentityIncrement", 1)
+                        .HasAnnotation("SqlServer:IdentitySeed", 1L)
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<long>("BreakStartHour")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<long>("BreakStopHour")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("FullName")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("TEXT");
+
+                    b.Property<bool>("HasCredential")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<bool>("IsAdmin")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<byte[]>("PasswordHash")
+                        .HasColumnType("BLOB");
+
+                    b.Property<byte[]>("PasswordSalt")
+                        .HasColumnType("BLOB");
+
+                    b.Property<string>("Photo")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("UserName")
+                        .HasColumnType("TEXT");
+
+                    b.Property<long>("WorkStartHour")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<long>("WorkStopHour")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Team", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            BreakStartHour = 55800L,
+                            BreakStopHour = 56700L,
+                            FullName = "Cid Zanella",
+                            HasCredential = false,
+                            IsAdmin = true,
+                            Photo = "",
+                            UserName = "",
+                            WorkStartHour = 45600L,
+                            WorkStopHour = 66600L
+                        },
+                        new
+                        {
+                            Id = 2,
+                            BreakStartHour = 72900L,
+                            BreakStopHour = 73800L,
+                            FullName = "Suélen Maino Zanella",
+                            HasCredential = false,
+                            IsAdmin = true,
+                            Photo = "",
+                            UserName = "",
+                            WorkStartHour = 66600L,
+                            WorkStopHour = 81000L
                         });
                 });
 #pragma warning restore 612, 618

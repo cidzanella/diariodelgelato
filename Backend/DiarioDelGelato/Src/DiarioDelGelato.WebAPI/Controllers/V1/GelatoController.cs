@@ -1,14 +1,16 @@
-﻿using DiarioDelGelato.Application.DTOs;
+﻿using Asp.Versioning;
+using DiarioDelGelato.Application.DTOs.Features.GelatoDTOs;
 using DiarioDelGelato.Application.Exceptions;
-using DiarioDelGelato.Application.Interfaces.Services;
+using DiarioDelGelato.Application.Interfaces.Services.Entities;
 using DiarioDelGelato.Domain.Entities;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
-namespace DiarioDelGelato.WebAPI.Controllers
+namespace DiarioDelGelato.WebAPI.Controllers.V1
 {
-    [Route("api/[controller]")]
+    [ApiVersion("1.0")]
+    [Route("api/v{version:apiVersion}/[controller]")]
     [ApiController]
     public class GelatoController : ControllerBase
     {
@@ -41,7 +43,7 @@ namespace DiarioDelGelato.WebAPI.Controllers
 
         // [Authorize]
         [HttpPost]
-        public async Task<ActionResult<GelatoResponseDto>> PostGelatoAsync([FromBody] GelatoCreateRequestDto gelatoCreate) 
+        public async Task<ActionResult<GelatoResponseDto>> PostGelatoAsync([FromBody] GelatoCreateRequestDto gelatoCreate)
         {
             try
             {
@@ -68,7 +70,7 @@ namespace DiarioDelGelato.WebAPI.Controllers
             }
             catch (NotFoundException)
             {
-                return NotFound();  
+                return NotFound();
             }
             catch (Exception ex)
             {

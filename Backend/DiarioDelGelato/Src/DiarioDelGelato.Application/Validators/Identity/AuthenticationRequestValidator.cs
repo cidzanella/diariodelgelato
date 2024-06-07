@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DiarioDelGelato.Infrastructure.Identity.Models.Authentication
+
+namespace DiarioDelGelato.Application.Validators.Identity
 {
-    internal class Token
+    public class AuthenticationRequestValidator
     {
     }
 }

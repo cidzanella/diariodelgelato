@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DiarioDelGelato.Infrastructure.Services
+namespace DiarioDelGelato.Application.DTOs.Identity
 {
-    public class UsbScaleWebsocket
+    public class RevokeTokenRequestDTO
     {
-        
+        public string Token { get; set; }
     }
 }

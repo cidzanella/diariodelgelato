@@ -5,13 +5,14 @@ using System.Text.Json;
 
 namespace DiarioDelGelato.WebAPI.Infrastructure.Middlewares
 {
-    public class ExceptionHandlerMiddleware
+    //TODO: add Serilog
+    public class HttpExceptionHandlerMiddleware
     {
         private readonly RequestDelegate _next;
-        private readonly ILogger<ExceptionHandlerMiddleware> _logger;
+        private readonly ILogger<HttpExceptionHandlerMiddleware> _logger;
         private readonly IHostEnvironment _environment;
 
-        public ExceptionHandlerMiddleware(RequestDelegate next, ILogger<ExceptionHandlerMiddleware> logger, 
+        public HttpExceptionHandlerMiddleware(RequestDelegate next, ILogger<HttpExceptionHandlerMiddleware> logger, 
             IHostEnvironment environment) 
         {
             _next = next;

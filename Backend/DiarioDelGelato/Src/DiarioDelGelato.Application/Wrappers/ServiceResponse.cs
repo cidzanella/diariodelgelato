@@ -8,25 +8,25 @@ using System.Threading.Tasks;
 namespace DiarioDelGelato.Application.Wrappers
 {
     // Generic wrapper for service response to API controller.
-    public class ServiceResponse<T> where T : class
+    public class ServiceResponse<T>
     {
         public bool Success { get; protected set; }
         public string Message { get; protected set; }
-        public T EntityDTO { get; protected set; }
+        public T Data { get; protected set; }
 
-        public ServiceResponse(bool success, string message, T entityDTO)
+        public ServiceResponse(bool success, string message, T data)
         {
             Success = success;
             Message = message;
-            EntityDTO = entityDTO;
+            Data = data;
         }
 
-        public ServiceResponse(T entityDTO) : this(true, string.Empty, entityDTO)
+        public ServiceResponse(T data, string message = default) : this(true, message, data)
         {
 
         }
 
-        public ServiceResponse(string message) : this(false, message, null)
+        public ServiceResponse(string message) : this(false, message, default)
         {
 
         }

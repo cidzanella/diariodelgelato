@@ -1,6 +1,9 @@
 ﻿
 using AutoMapper;
-using DiarioDelGelato.Application.DTOs;
+using DiarioDelGelato.Application.DTOs.Features.UserDTOs;
+using DiarioDelGelato.Application.DTOs.Features.ConoDelGiornoDTOs;
+using DiarioDelGelato.Application.DTOs.Features.GelatoDTOs;
+using DiarioDelGelato.Application.DTOs.Features.TeamDTOs;
 using DiarioDelGelato.Domain.Entities;
 
 namespace DiarioDelGelato.Application.Mappings
@@ -12,6 +15,17 @@ namespace DiarioDelGelato.Application.Mappings
             CreateMap<GelatoCreateRequestDto, Gelato>();
             CreateMap<Gelato, GelatoResponseDto>();
             CreateMap<GelatoUpdateRequestDto, Gelato>();
+
+            CreateMap<ConoDelGiornoCreateRequestDto, ConoDelGiorno>();
+            CreateMap<ConoDelGiorno,  ConoDelGiornoResponseDto>();
+
+            CreateMap<UserCreateRequestDto, User>();
+            CreateMap<UserUpdateRequestDto, User>();
+            CreateMap<User, UserResponseDto>();
+
+            CreateMap<TeamMemberCreateRequestDto, TeamMember>();
+            CreateMap<TeamMemberUpdateRequestDto, TeamMember>();
+            CreateMap<TeamMember, TeamMemberResponseDto>();
         }
     }
 }

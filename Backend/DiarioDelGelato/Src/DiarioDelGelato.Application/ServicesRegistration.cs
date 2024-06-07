@@ -1,5 +1,5 @@
-﻿using DiarioDelGelato.Application.Interfaces.Services;
-using DiarioDelGelato.Application.Services;
+﻿using DiarioDelGelato.Application.Interfaces.Services.Entities;
+using DiarioDelGelato.Application.Services.Features;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using System;
@@ -15,10 +15,12 @@ namespace DiarioDelGelato.Application
     public static class ServicesRegistration
     {
         // services extensions for the application core
-        public static void AddApplicationLayer(this IServiceCollection services )
+        public static IServiceCollection AddApplicationLayer(this IServiceCollection services )
         {
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
             services.AddScoped<IGelatoService, GelatoService>();
+            services.AddScoped<IConoDelGiornoService, ConoDelGiornoService>();
+            return services;
         }
     }
 }

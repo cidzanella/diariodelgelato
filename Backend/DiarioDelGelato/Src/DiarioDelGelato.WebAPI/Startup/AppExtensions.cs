@@ -14,7 +14,7 @@ namespace DiarioDelGelato.WebAPI.Startup
         }
         public static void UseExceptionHandlerMiddleware(this IApplicationBuilder app)
         {
-            app.UseMiddleware<ExceptionHandlerMiddleware>();
+            app.UseMiddleware<HttpExceptionHandlerMiddleware>();
         }
     }
 }

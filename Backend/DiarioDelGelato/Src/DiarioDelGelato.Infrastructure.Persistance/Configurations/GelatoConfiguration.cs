@@ -15,6 +15,7 @@ namespace DiarioDelGelato.Infrastructure.Persistance.Configurations
         {
             builder.ToTable("Gelato");
 
+            // since Gelato entity will not have annotations to avoid tie Domain layer to Infrastructure all the database configuration will be handle here
             builder.Property(g => g.Id)
                 .ValueGeneratedOnAdd()
                 .IsRequired()

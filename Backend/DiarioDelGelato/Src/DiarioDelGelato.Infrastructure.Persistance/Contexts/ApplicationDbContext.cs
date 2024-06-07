@@ -17,9 +17,17 @@ namespace DiarioDelGelato.Infrastructure.Persistance.Contexts
 
         public DbSet<Gelato> Gelatos { get; set; }
 
+        public DbSet<TeamMember> Team { get; set; }
+
+        public DbSet<ConoDelGiorno> ConoDelGiornoJournal { get; set; }
+
+        public DbSet<User> Users { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+
+            // check Configurations folder for entity configuration class, such as GelatoConfiguration
 
             // apply configuration for specific model entity
             //modelBuilder.ApplyConfiguration(new GelatoConfiguration());
