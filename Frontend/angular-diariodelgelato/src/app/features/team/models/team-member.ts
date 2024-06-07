@@ -1,9 +1,12 @@
-// team member and schedule break interval - used for conodelgiorno registering
+// team member and schedule break interval - used for conodelgiorno registering and time&attendance
 export interface TeamMember {
-    fullName: string,
-    breakStartHour?: Date,
-    breakStopHour?: Date,
-    hasCredential?: boolean,
-    userName?: string,
-    isAdmin?: boolean
+    id?: number;
+    fullName: string;
+    workStartHour?: Date;
+    workStopHour?: Date;
+    breakStartHour?: Date;
+    breakStopHour?: Date;
+    userName?: string;
+    isAdmin?: boolean;
+    photo?: string;
 }

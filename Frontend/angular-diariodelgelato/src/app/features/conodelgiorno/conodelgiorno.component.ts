@@ -3,6 +3,8 @@ import { TeamService } from '../team/services/team.service';
 import { TeamMember } from '../team/models/team-member';
 import { Gelato } from '../gelato/models/gelato';
 import { GelatoService } from '../gelato/services/gelato.service';
+import { ConodelgiornoService } from './services/conodelgiorno.service';
+import { Conodelgiorno } from './models/conodelgiorno';
 
 @Component({
   selector: 'diarioapp-conodelgiorno',
@@ -13,10 +15,12 @@ export class ConodelgiornoComponent implements OnInit {
 
   team: TeamMember[] = [];
   gelatos: Gelato[] = [];
+  conoDelGiorno: Conodelgiorno | undefined;
   weightConoDelGiorno: number | undefined;
   
   constructor(private _teamService: TeamService,
-    _gelatoService: GelatoService) { 
+    private _gelatoService: GelatoService,
+    private _conodelgiornoService: ConodelgiornoService) { 
     this.team = _teamService.getTeam();
     _gelatoService.getGelatos().subscribe(gelatos => this.gelatos = gelatos);
   }
@@ -25,8 +29,18 @@ export class ConodelgiornoComponent implements OnInit {
   }
 
   // get weigth from scale: auto saves? or use register button?
-  gotWeightFromScale(weight: number){
-    this.weightConoDelGiorno = weight;
+  gotWeightFromScale(weightIn: number){
+    this.conoDelGiorno = <Conodelgiorno>{weight: weightIn};
+    // gelatoA
+    // gelatoB
+    // teamMember
+    // timestamp pegar do servidor é mais seguro!
+    
+    //this.weightConoDelGiorno = weight;
+    
+    //this._conodelgiornoService.registerConoDelGiorno(this.conoDelGiorno)
+
   }
+
 
 }
