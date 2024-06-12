@@ -30,4 +30,8 @@
     <ProjectReference Include="..\DiarioDelGelato.Infrastructure\DiarioDelGelato.Infrastructure.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Validators\Features\" />
+  </ItemGroup>
+
 </Project>

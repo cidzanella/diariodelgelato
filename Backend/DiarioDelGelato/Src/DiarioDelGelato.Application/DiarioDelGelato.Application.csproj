@@ -18,7 +18,6 @@
   <ItemGroup>
     <Folder Include="Features\Gelatos\Commands\" />
     <Folder Include="Features\Gelatos\Queries\" />
-    <Folder Include="Validators\Features\" />
   </ItemGroup>
 
 </Project>

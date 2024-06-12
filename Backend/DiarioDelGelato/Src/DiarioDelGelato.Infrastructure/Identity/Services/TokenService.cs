@@ -7,6 +7,9 @@ using Microsoft.Extensions.Options;
 using System.Security.Claims;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using DiarioDelGelato.Application.Wrappers;
+using DiarioDelGelato.Domain.Entities;
+using DiarioDelGelato.Application.DTOs.Features.UserDTOs;
 
 namespace DiarioDelGelato.Infrastructure.Identity.Services
 {
@@ -24,51 +27,27 @@ namespace DiarioDelGelato.Infrastructure.Identity.Services
             _passwordService = passwordService;
         }
 
-        public async Task<AuthenticationResponseDTO> GenerateAccessTokenAsync(AuthenticationRequestDTO authenticationRequest)
+        public async Task<ServiceResponse<string>> GenerateAccessTokenAsync(AuthenticationRequestDTO authenticationRequest, UserResponseDto user )
         {
-            // check if username is null or empty
-            if (string.IsNullOrWhiteSpace(authenticationRequest.UserName))
-                throw new ArgumentNullException("Username cannot be null or empty.", nameof(authenticationRequest.UserName));
-
-            // check if password is null or empty
-            if (string.IsNullOrWhiteSpace(authenticationRequest.Password))
-                throw new ArgumentNullException("Password cannot be null or empty.", nameof(authenticationRequest.Password));
-            
-            // validate if username exists
-            var response = await _userService.ReadUserByUsernameAsync(authenticationRequest.UserName);
-            if (!response.Success)
-                throw new ArgumentNullException("User not found.", nameof(authenticationRequest.UserName));
-
             // retrive password hash and salt
-            var (storedPasswordHash, storedPasswordSalt) = await _userService.GetUserPasswordDataAsync(response.Data.Id);
+            var (storedPasswordHash, storedPasswordSalt) = await _userService.GetUserPasswordDataAsync(user.Id);
             
             // validate if passwords match
             if (!_passwordService.VerifyPasswordHash(authenticationRequest.Password, storedPasswordHash, storedPasswordSalt))
-                throw new ArgumentNullException("Invalid password.", nameof(authenticationRequest.Password));
+                return new ServiceResponse<string>("Unauthorized! Invalid password.");
 
             // generate token
             var jwtToken = await GenerateJwtTokenAsync(authenticationRequest.UserName);
+
+            // serialize token as string
+            var tokenHandler = new JwtSecurityTokenHandler();
+            var token = tokenHandler.WriteToken(jwtToken);
             
-            var responseDTO = new AuthenticationResponseDTO
-            {
-                Token = jwtToken,
-                IsAdmin = response.Data.IsAdmin,
-                UserName = response.Data.UserName,
-                IsEnabled = response.Data.IsEnabled
-            };
+            return new ServiceResponse<string>(token);
 
-            return responseDTO;
         }
 
-        public void RevokeToken(RevokeTokenRequestDTO revokeTokenRequest)
-        {
-            //invalidate the user's token by adding its token identifier (e.g., JWT jti claim) to the token blacklist.
-            //important to clear token from frontend storage as well
-
-            throw new NotImplementedException();
-        }
-
-        private async Task<string> GenerateJwtTokenAsync(string userName)
+        private async Task<JwtSecurityToken> GenerateJwtTokenAsync(string userName)
         {
             var claims = new List<Claim>
 {
@@ -87,14 +66,23 @@ namespace DiarioDelGelato.Infrastructure.Identity.Services
                 expires: DateTime.Now.AddMinutes(_jwtSettings.ExpiryMinutes),
                 signingCredentials: credentials
             );
-            
-            var tokenHandler = new JwtSecurityTokenHandler();
-            return await Task.FromResult(tokenHandler.WriteToken(token));
 
+            return await Task.FromResult(token);
+        }
+
+        //
+        // Future implementation
+        //
+        public async Task<ServiceResponse<bool>> RevokeTokenAsync(RevokeTokenRequestDTO revokeTokenRequest)
+        {
+            //invalidate the user's token by adding its token identifier (e.g., JWT jti claim) to the token blacklist using a TokenRepository
+            //important to clear token from frontend storage as well
+
+            throw new NotImplementedException();
         }
 
         //public async Task<string> GenerateRefreshTokenAsync(RefreshTokenRequest request, string ipAddress)
-        //{ 
+        //{
         //    throw new NotImplementedException();
         //}
     }

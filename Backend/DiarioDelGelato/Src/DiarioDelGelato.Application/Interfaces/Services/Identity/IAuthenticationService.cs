@@ -13,7 +13,7 @@ namespace DiarioDelGelato.Application.Interfaces.Services.Identity
     {
         // login
         Task<ServiceResponse<AuthenticationResponseDTO>> LoginAsync(AuthenticationRequestDTO authenticationRequest); //user and pass
-        bool Logout(RevokeTokenRequestDTO revokeTokenRequest); //user
+        Task<bool> LogoutAsync(RevokeTokenRequestDTO revokeTokenRequest); //user
 
         /* 
          * Common methods for Authentication Services:

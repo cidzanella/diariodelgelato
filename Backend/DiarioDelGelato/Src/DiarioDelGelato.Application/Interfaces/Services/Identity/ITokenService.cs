@@ -1,4 +1,6 @@
-﻿using DiarioDelGelato.Application.DTOs.Identity;
+﻿using DiarioDelGelato.Application.DTOs.Features.UserDTOs;
+using DiarioDelGelato.Application.DTOs.Identity;
+using DiarioDelGelato.Application.Wrappers;
 using DiarioDelGelato.Domain.Entities;
 using System;
 using System.Collections.Generic;
@@ -10,14 +12,13 @@ namespace DiarioDelGelato.Application.Interfaces.Services.Identity
 {
     public interface ITokenService
     {
-        Task<AuthenticationResponseDTO> GenerateAccessTokenAsync(AuthenticationRequestDTO authenticationRequest);
+        Task<ServiceResponse<string>> GenerateAccessTokenAsync(AuthenticationRequestDTO authenticationRequest, UserResponseDto userResponseDto);
 
-        void RevokeToken(RevokeTokenRequestDTO revokeTokenRequest);
+        Task<ServiceResponse<bool>> RevokeTokenAsync(RevokeTokenRequestDTO revokeTokenRequest);
 
+        // future implementation:
         // string GenerateRefreshToken();
-
         // ValidateRefreshToken(string refreshToken);
-
         // GenerateAccessTokenFromRefreshToken(string refreshToken);
 
         /*

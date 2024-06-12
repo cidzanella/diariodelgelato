@@ -18,6 +18,6 @@ namespace DiarioDelGelato.Application.Interfaces.Services.Entities
         Task<ServiceResponse<UserResponseDto>> CreateUserAsync(UserCreateRequestDto userCreateRequestDto);
         Task<ServiceResponse<bool>> UpdateUserAsync(UserUpdateRequestDto userUpdateRequestDto);
         Task<ServiceResponse<bool>> DeleteUserAsync(int id);
-        Task<(string PasswordHash, string PasswordSalt)> GetUserPasswordDataAsync(int userId);
+        Task<(string PasswordHash, string PasswordSalt)> GetUserPasswordDataAsync(Guid userId);
     }
 }

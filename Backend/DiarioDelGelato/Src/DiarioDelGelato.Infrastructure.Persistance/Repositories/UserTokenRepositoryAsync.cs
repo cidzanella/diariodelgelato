@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-
-namespace DiarioDelGelato.Application.Validators.Identity
+namespace DiarioDelGelato.Infrastructure.Persistance.Repositories
 {
-    public class AuthenticationRequestValidator
+    public class UserTokenRepositoryAsync
     {
     }
 }

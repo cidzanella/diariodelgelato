@@ -24,27 +24,42 @@ namespace DiarioDelGelato.Application.Services.Identity
 
         public async Task<ServiceResponse<AuthenticationResponseDTO>> LoginAsync(AuthenticationRequestDTO authenticationRequest)
         {
-            throw new NotImplementedException();
-
             // validate credentials: username and password
-            if (string.IsNullOrEmpty(authenticationRequest.UserName) || string.IsNullOrEmpty(authenticationRequest.Password))
+            if (string.IsNullOrWhiteSpace(authenticationRequest.UserName) || string.IsNullOrWhiteSpace(authenticationRequest.Password))
                 return new ServiceResponse<AuthenticationResponseDTO>("Unauthorized! Username and password are required.");
 
             // verify user on database
-            var user = await _userService.ReadUserByUsernameAsync(authenticationRequest.UserName);
-
-            if (user == null)
-                return new ServiceResponse<AuthenticationResponseDTO>("Unauthorized! User not found.");
+            var responseUser = await _userService.ReadUserByUsernameAsync(authenticationRequest.UserName);
+            if (!responseUser.Success)
+                return new ServiceResponse<AuthenticationResponseDTO>($"Unauthorized! {responseUser.Message}");
 
             // generate JWT token
+            var responseToken= await _tokenService.GenerateAccessTokenAsync(authenticationRequest, responseUser.Data);
+            if (!responseToken.Success)
+                return new ServiceResponse<AuthenticationResponseDTO>(responseToken.Message);
 
-            // return token
+            var responseDTO = new AuthenticationResponseDTO
+            {
+                Token = responseToken.Data,
+                IsAdmin = responseUser.Data.IsAdmin,
+                UserName = responseUser.Data.UserName,
+                IsEnabled = responseUser.Data.IsEnabled
+            };
+
+            return new ServiceResponse<AuthenticationResponseDTO>(responseDTO);
+
         }
 
-        public bool Logout(RevokeTokenRequestDTO revokeTokenRequest)
+        // future implementation, not in use
+        public async Task<bool> LogoutAsync(RevokeTokenRequestDTO revokeTokenRequest)
         {
-            //todo: implement logout on Application.Services.Identity
-            throw new NotImplementedException();
+            // validate the token
+            if (string.IsNullOrWhiteSpace(revokeTokenRequest.Token))
+                return false;
+
+            // revoke the token
+            await _tokenService.RevokeTokenAsync(revokeTokenRequest);
+            return true;
         }
     }
 }

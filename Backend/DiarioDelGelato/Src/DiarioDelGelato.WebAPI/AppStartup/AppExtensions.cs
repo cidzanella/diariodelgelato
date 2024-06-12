@@ -1,7 +1,8 @@
 ﻿using DiarioDelGelato.WebAPI.Infrastructure.Middlewares;
 
-namespace DiarioDelGelato.WebAPI.Startup
+namespace DiarioDelGelato.WebAPI.AppStartup
 {
+    //contains extension methods for configuring the middleware pipeline
     public static class AppExtensions
     {
         public static void UseSwaggerExtension(this IApplicationBuilder app)
