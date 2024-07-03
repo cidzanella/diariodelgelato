@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using DiarioDelGelato.Application.DTOs.Features.TeamDTOs;
 using DiarioDelGelato.Application.Interfaces.Repositories;
-using DiarioDelGelato.Application.Interfaces.Services.Entities;
+using DiarioDelGelato.Application.Interfaces.Services.Features;
 using DiarioDelGelato.Application.Wrappers;
 using DiarioDelGelato.Domain.Entities;
 using System;

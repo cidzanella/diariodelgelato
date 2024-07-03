@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DiarioDelGelato.Application.Interfaces.Repositories
 {
-    public interface IUserRespositoryAsync : IGenericRepositoryAsync<User>
+    public interface IUserRepositoryAsync : IGenericRepositoryAsync<User>
     {
         Task<User> FindByNameAsync(string userName);
     }

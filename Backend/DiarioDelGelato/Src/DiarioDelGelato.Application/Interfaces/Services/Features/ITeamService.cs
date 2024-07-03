@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DiarioDelGelato.Application.Interfaces.Services.Entities
+namespace DiarioDelGelato.Application.Interfaces.Services.Features
 {
     // implements CRUD services using repository
     public interface ITeamService

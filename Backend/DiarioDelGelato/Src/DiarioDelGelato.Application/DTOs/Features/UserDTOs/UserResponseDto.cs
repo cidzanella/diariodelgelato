@@ -8,7 +8,7 @@ namespace DiarioDelGelato.Application.DTOs.Features.UserDTOs
 {
     public class UserResponseDto
     {
-        public Guid Id { get; set; }
+        public int Id { get; set; }
 
         public string UserName { get; set; }
 

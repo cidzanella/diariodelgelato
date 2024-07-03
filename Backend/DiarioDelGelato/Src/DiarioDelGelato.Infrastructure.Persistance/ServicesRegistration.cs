@@ -9,6 +9,8 @@ using System.Text;
 using System.Threading.Tasks;
 using DiarioDelGelato.Application.Interfaces.Repositories;
 using DiarioDelGelato.Infrastructure.Persistance.Repositories;
+using DiarioDelGelato.Application.Interfaces.Services;
+using DiarioDelGelato.Infrastructure.Persistance.Services;
 
 namespace DiarioDelGelato.Infrastructure.Persistance
 {
@@ -44,6 +46,10 @@ namespace DiarioDelGelato.Infrastructure.Persistance
 
             services.AddScoped<IGelatoRepositoryAsync, GelatoRepositoryAsync>();
             services.AddScoped<IConoDelGiornoRepositoryAsync, ConoDelGiornoRespositoryAsync>();
+            services.AddScoped<ITeamRepositoryAsync, TeamRepositoryAsync>();
+            services.AddScoped<IUserRepositoryAsync, UserRepositoryAsync>();
+            services.AddTransient<IDatabaseSeeder, DatabaseSeeder>();
+
             return services;
 
         }

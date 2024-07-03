@@ -1,7 +1,7 @@
 ﻿using Asp.Versioning;
 using DiarioDelGelato.Application.DTOs.Features.GelatoDTOs;
 using DiarioDelGelato.Application.Exceptions;
-using DiarioDelGelato.Application.Interfaces.Services.Entities;
+using DiarioDelGelato.Application.Interfaces.Services.Features;
 using DiarioDelGelato.Domain.Entities;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;

@@ -2,7 +2,7 @@
 using DiarioDelGelato.Application.DTOs.Features.GelatoDTOs;
 using DiarioDelGelato.Application.Exceptions;
 using DiarioDelGelato.Application.Interfaces.Repositories;
-using DiarioDelGelato.Application.Interfaces.Services.Entities;
+using DiarioDelGelato.Application.Interfaces.Services.Features;
 using DiarioDelGelato.Application.Wrappers;
 using DiarioDelGelato.Domain.Entities;
 using System;

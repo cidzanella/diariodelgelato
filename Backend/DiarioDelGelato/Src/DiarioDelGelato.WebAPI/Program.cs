@@ -1,3 +1,4 @@
+using DiarioDelGelato.Application.Interfaces.Services;
 using DiarioDelGelato.WebAPI.AppStartup;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -8,6 +9,13 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.RegisterServices(builder.Configuration);
 
 var app = builder.Build();
+
+// Seed database before starting the application
+using (var scope = app.Services.CreateScope())
+{
+    var seeder = scope.ServiceProvider.GetRequiredService<IDatabaseSeeder>();
+    seeder.Seed();
+}
 
 // REGISTER MIDDLEWARE HERE
 // Configure the HTTP request pipeline. 

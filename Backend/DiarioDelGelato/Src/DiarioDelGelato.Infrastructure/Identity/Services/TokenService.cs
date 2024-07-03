@@ -1,5 +1,4 @@
 ﻿using DiarioDelGelato.Application.DTOs.Identity;
-using DiarioDelGelato.Application.Interfaces.Services.Entities;
 using DiarioDelGelato.Application.Interfaces.Services.Identity;
 using DiarioDelGelato.Infrastructure.Identity.Settings;
 using System.IdentityModel.Tokens.Jwt;
@@ -10,49 +9,47 @@ using System.Text;
 using DiarioDelGelato.Application.Wrappers;
 using DiarioDelGelato.Domain.Entities;
 using DiarioDelGelato.Application.DTOs.Features.UserDTOs;
+using DiarioDelGelato.Application.Interfaces.Services.Features;
 
 namespace DiarioDelGelato.Infrastructure.Identity.Services
 {
     public class TokenService : ITokenService
     {
         private readonly JWTSettings _jwtSettings;
-        private readonly IUserService _userService;
         private readonly IPasswordService _passwordService;
 
         // JWtSettings will come from appsettings.json
-        public TokenService(IOptions<JWTSettings> jwtSettings, IUserService userService, IPasswordService passwordService )
+        public TokenService(IOptions<JWTSettings> jwtSettings, IPasswordService passwordService )
         {
             _jwtSettings = jwtSettings.Value;
-            _userService = userService;
             _passwordService = passwordService;
         }
 
-        public async Task<ServiceResponse<string>> GenerateAccessTokenAsync(AuthenticationRequestDTO authenticationRequest, UserResponseDto user )
+        public async Task<ServiceResponse<string>> GenerateAccessTokenAsync(AuthenticationRequestDTO authenticationRequest, UserAuthenticationDataReponseDto userAuthenticationData )
         {
-            // retrive password hash and salt
-            var (storedPasswordHash, storedPasswordSalt) = await _userService.GetUserPasswordDataAsync(user.Id);
-            
             // validate if passwords match
-            if (!_passwordService.VerifyPasswordHash(authenticationRequest.Password, storedPasswordHash, storedPasswordSalt))
+            if (!_passwordService.VerifyPasswordHash(authenticationRequest.Password, userAuthenticationData.PasswordHash, userAuthenticationData.PasswordSalt))
                 return new ServiceResponse<string>("Unauthorized! Invalid password.");
 
             // generate token
-            var jwtToken = await GenerateJwtTokenAsync(authenticationRequest.UserName);
+            var jwtToken = await GenerateJwtTokenAsync(userAuthenticationData.UserName, userAuthenticationData.IsAdmin);
 
             // serialize token as string
             var tokenHandler = new JwtSecurityTokenHandler();
             var token = tokenHandler.WriteToken(jwtToken);
             
-            return new ServiceResponse<string>(token);
+            return new ServiceResponse<string>(true, "Access token generated.", token);
 
         }
 
-        private async Task<JwtSecurityToken> GenerateJwtTokenAsync(string userName)
+        private async Task<JwtSecurityToken> GenerateJwtTokenAsync(string userName, bool isAdmin)
         {
             var claims = new List<Claim>
 {
                 new Claim(JwtRegisteredClaimNames.Sub, userName),
-                new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
+                new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
+                new Claim(ClaimTypes.Role, isAdmin?"Admin":"User")
+
             };
 
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_jwtSettings.SecretKey));

@@ -17,11 +17,11 @@ namespace DiarioDelGelato.Infrastructure.Persistance.Contexts
 
         public DbSet<Gelato> Gelatos { get; set; }
 
-        public DbSet<TeamMember> Team { get; set; }
-
         public DbSet<ConoDelGiorno> ConoDelGiornoJournal { get; set; }
-
+        
         public DbSet<User> Users { get; set; }
+        
+        public DbSet<TeamMember> Team { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

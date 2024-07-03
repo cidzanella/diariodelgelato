@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DiarioDelGelato.Application.Interfaces.Services.Entities
+namespace DiarioDelGelato.Application.Interfaces.Services.Features
 {
     // CRUD for Application User
     public interface IUserService
@@ -18,6 +18,6 @@ namespace DiarioDelGelato.Application.Interfaces.Services.Entities
         Task<ServiceResponse<UserResponseDto>> CreateUserAsync(UserCreateRequestDto userCreateRequestDto);
         Task<ServiceResponse<bool>> UpdateUserAsync(UserUpdateRequestDto userUpdateRequestDto);
         Task<ServiceResponse<bool>> DeleteUserAsync(int id);
-        Task<(string PasswordHash, string PasswordSalt)> GetUserPasswordDataAsync(Guid userId);
+        Task<ServiceResponse<UserAuthenticationDataReponseDto>> GetUserPasswordDataAsync(int userId);
     }
 }

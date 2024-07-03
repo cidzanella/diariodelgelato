@@ -8,8 +8,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using DiarioDelGelato.Application.Interfaces.Services.Entities;
 using DiarioDelGelato.Application.DTOs.Features.ConoDelGiornoDTOs;
+using DiarioDelGelato.Application.Interfaces.Services.Features;
 
 namespace DiarioDelGelato.Application.Services.Features
 {

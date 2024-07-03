@@ -1,5 +1,5 @@
 ﻿using DiarioDelGelato.Application.DTOs.Identity;
-using DiarioDelGelato.Application.Interfaces.Services.Entities;
+using DiarioDelGelato.Application.Interfaces.Services.Features;
 using DiarioDelGelato.Application.Interfaces.Services.Identity;
 using DiarioDelGelato.Application.Wrappers;
 using System;
@@ -33,8 +33,13 @@ namespace DiarioDelGelato.Application.Services.Identity
             if (!responseUser.Success)
                 return new ServiceResponse<AuthenticationResponseDTO>($"Unauthorized! {responseUser.Message}");
 
+            // get user password data
+            var responseUserAuthenticationData = await _userService.GetUserPasswordDataAsync(responseUser.Data.Id);
+            if (!responseUserAuthenticationData.Success)
+                return new ServiceResponse<AuthenticationResponseDTO>($"Unauthorized! {responseUserAuthenticationData.Message}");
+
             // generate JWT token
-            var responseToken= await _tokenService.GenerateAccessTokenAsync(authenticationRequest, responseUser.Data);
+            var responseToken= await _tokenService.GenerateAccessTokenAsync(authenticationRequest, responseUserAuthenticationData.Data);
             if (!responseToken.Success)
                 return new ServiceResponse<AuthenticationResponseDTO>(responseToken.Message);
 

@@ -1,4 +1,5 @@
-﻿using DiarioDelGelato.Application.Interfaces.Services;
+﻿using DiarioDelGelato.Application.Interfaces.Services.Identity;
+using DiarioDelGelato.Infrastructure.Identity.Services;
 using DiarioDelGelato.Infrastructure.Identity.Settings;
 using DiarioDelGelato.Infrastructure.Services;
 using DiarioDelGelato.Infrastructure.Services.Settings;
@@ -17,6 +18,8 @@ namespace DiarioDelGelato.Infrastructure
         public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
         {
             // add infrastructure services such as email, csv file builder, datetime, token, etc
+            services.AddScoped<ITokenService, TokenService>();
+            services.AddScoped<IPasswordService, PasswordService>();
             services.AddJwtTokenAuthentication(configuration);
             services.AddMailService(configuration);
             return services;
@@ -52,7 +55,7 @@ namespace DiarioDelGelato.Infrastructure
 
         private static IServiceCollection AddMailService(this IServiceCollection services, IConfiguration configuration)
         {
-            throw new System.NotImplementedException();
+            return services;
 
             //services.Configure<MailSettings>(configuration.GetSection("MailSettings"));
             //services.AddScoped<IMailService, MailService>();

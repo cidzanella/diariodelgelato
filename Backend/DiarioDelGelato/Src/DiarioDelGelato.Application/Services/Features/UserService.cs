@@ -1,8 +1,9 @@
 ﻿using AutoMapper;
 using DiarioDelGelato.Application.DTOs.Features.UserDTOs;
+using DiarioDelGelato.Application.DTOs.Identity;
 using DiarioDelGelato.Application.Exceptions;
 using DiarioDelGelato.Application.Interfaces.Repositories;
-using DiarioDelGelato.Application.Interfaces.Services.Entities;
+using DiarioDelGelato.Application.Interfaces.Services.Features;
 using DiarioDelGelato.Application.Interfaces.Services.Identity;
 using DiarioDelGelato.Application.Wrappers;
 using DiarioDelGelato.Domain.Entities;
@@ -16,11 +17,11 @@ namespace DiarioDelGelato.Application.Services.Features
 {
     public class UserService : IUserService
     {
-        private readonly IUserRespositoryAsync _userRespositoryAsync;
+        private readonly IUserRepositoryAsync _userRespositoryAsync;
         private readonly IPasswordService _passwordService;
         private readonly IMapper _mapper;
 
-        public UserService(IUserRespositoryAsync UserRespositoryAsync, IPasswordService passwordService, IMapper mapper)      
+        public UserService(IUserRepositoryAsync UserRespositoryAsync, IPasswordService passwordService, IMapper mapper)      
         {
             _userRespositoryAsync = UserRespositoryAsync;
             _passwordService = passwordService;
@@ -110,12 +111,16 @@ namespace DiarioDelGelato.Application.Services.Features
 
         }
 
-        public async Task<(string PasswordHash, string PasswordSalt)> GetUserPasswordDataAsync(int userId)
+        public async Task<ServiceResponse<UserAuthenticationDataReponseDto>> GetUserPasswordDataAsync(int userId)
         {
             var user = await _userRespositoryAsync.GetByIdAsync(userId);
             if (user == null)
-                throw new NotFoundException($"User with ID {userId} not found.");
-            return (user.PasswordHash, user.PasswordSalt);
+                return new ServiceResponse<UserAuthenticationDataReponseDto>($"User with ID {userId} not found.");
+            
+            if (String.IsNullOrWhiteSpace(user.PasswordHash) || String.IsNullOrWhiteSpace(user.PasswordSalt))
+                return new ServiceResponse<UserAuthenticationDataReponseDto>("Unauthorized! Not able to retrive the password.");
+
+            return new ServiceResponse<UserAuthenticationDataReponseDto>(_mapper.Map<UserAuthenticationDataReponseDto>(user));
         }
     }
 }

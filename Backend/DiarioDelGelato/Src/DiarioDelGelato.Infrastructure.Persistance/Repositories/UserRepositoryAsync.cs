@@ -11,11 +11,11 @@ using System.Threading.Tasks;
 
 namespace DiarioDelGelato.Infrastructure.Persistance.Repositories
 {
-    public class UserRespositoryAsync : GenericRepositoryAsync<User>, IUserRespositoryAsync
+    public class UserRepositoryAsync : GenericRepositoryAsync<User>, IUserRepositoryAsync
     {
         private readonly ApplicationDbContext _dbContext;
 
-        public UserRespositoryAsync(ApplicationDbContext dbContext) : base(dbContext)
+        public UserRepositoryAsync(ApplicationDbContext dbContext) : base(dbContext)
         {
             _dbContext = dbContext;
         }

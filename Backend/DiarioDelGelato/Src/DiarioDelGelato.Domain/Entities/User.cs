@@ -1,17 +1,16 @@
 ﻿
+using DiarioDelGelato.Domain.Common;
+
 namespace DiarioDelGelato.Domain.Entities   
 {
     // a team member may have an application user 
     // an User may have a team member or not: example - user Admin that is not a TeamMember
-    public class User
+    public class User : BaseEntity
     {
-        public User() => this.Id = Guid.NewGuid();
-
-        public Guid Id { get; set; }
 
         public int TeamMemberId { get; set; }
 
-        public bool IsEnable { get; set; }
+        public bool IsEnabled { get; set; }
 
         public string? UserName { get; set; } //for logon
 

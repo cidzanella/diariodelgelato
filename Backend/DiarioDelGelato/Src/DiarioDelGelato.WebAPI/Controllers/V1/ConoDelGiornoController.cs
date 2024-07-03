@@ -1,6 +1,6 @@
 ﻿using DiarioDelGelato.Application.DTOs.Features.ConoDelGiornoDTOs;
 using DiarioDelGelato.Application.Extensions;
-using DiarioDelGelato.Application.Interfaces.Services.Entities;
+using DiarioDelGelato.Application.Interfaces.Services.Features;
 using DiarioDelGelato.Application.Services;
 using Microsoft.AspNetCore.Mvc;
 

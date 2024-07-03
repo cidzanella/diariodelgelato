@@ -12,7 +12,7 @@ namespace DiarioDelGelato.Application.Interfaces.Services.Identity
 {
     public interface ITokenService
     {
-        Task<ServiceResponse<string>> GenerateAccessTokenAsync(AuthenticationRequestDTO authenticationRequest, UserResponseDto userResponseDto);
+        Task<ServiceResponse<string>> GenerateAccessTokenAsync(AuthenticationRequestDTO authenticationRequest, UserAuthenticationDataReponseDto userAuthenticationDataReponse);
 
         Task<ServiceResponse<bool>> RevokeTokenAsync(RevokeTokenRequestDTO revokeTokenRequest);
 

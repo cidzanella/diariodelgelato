@@ -22,6 +22,7 @@ namespace DiarioDelGelato.Application.Mappings
             CreateMap<UserCreateRequestDto, User>();
             CreateMap<UserUpdateRequestDto, User>();
             CreateMap<User, UserResponseDto>();
+            CreateMap<User, UserAuthenticationDataReponseDto>();
 
             CreateMap<TeamMemberCreateRequestDto, TeamMember>();
             CreateMap<TeamMemberUpdateRequestDto, TeamMember>();

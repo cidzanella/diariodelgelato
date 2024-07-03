@@ -1,12 +1,11 @@
 ﻿
 
+using DiarioDelGelato.Domain.Common;
+
 namespace DiarioDelGelato.Domain.Entities
 {
-    public class ConoDelGiorno
+    public class ConoDelGiorno : BaseEntity
     {
-        public ConoDelGiorno() => this.Id = Guid.NewGuid();
-
-        public Guid Id { get; set; }
         public int TeamMemberId { get; set; } //who is the gelato for
         public int GelatoAId { get; set; }
         public int GelatoBId { get; set; }
