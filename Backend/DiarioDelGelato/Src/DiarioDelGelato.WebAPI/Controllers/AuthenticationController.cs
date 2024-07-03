@@ -26,8 +26,8 @@ namespace DiarioDelGelato.WebAPI.Controllers
             var response = await _authenticationService.LoginAsync(authenticationRequest);
 
             if (response.Success)
-                return Ok(response.Data); 
-            
+                return Ok(response.Data);
+
             return BadRequest(response.Message);
         }
 

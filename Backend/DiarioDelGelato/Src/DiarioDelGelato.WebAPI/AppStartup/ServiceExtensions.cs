@@ -5,6 +5,7 @@ using DiarioDelGelato.Infrastructure;
 using DiarioDelGelato.Infrastructure.Persistance;
 using FluentValidation;
 using FluentValidation.AspNetCore;
+using Microsoft.OpenApi.Models;
 
 namespace DiarioDelGelato.WebAPI.AppStartup
 {
@@ -13,14 +14,66 @@ namespace DiarioDelGelato.WebAPI.AppStartup
         public static IServiceCollection RegisterServices (this IServiceCollection services, IConfiguration configuration)
         {
             services.AddPersistanceInfrastructure(configuration);
-            services.AddInfrastructure(configuration);
+            services.AddInfrastructure(configuration); // authentication is added here
+            services.RegisterAuthorizationService();
             services.AddApplicationLayer();
             services.AddControllers();
             services.AddEndpointsApiExplorer();
-            services.AddSwaggerGen();
             services.AddCors();
+            services.RegisterSwaggerGen();
             services.RegisterApiVersioningService();
             services.RegisterFluentValidationService();
+            return services;
+        }
+
+        private static IServiceCollection RegisterAuthorizationService(this IServiceCollection services)
+        {
+            services.AddAuthorization(options =>
+            {
+                options.AddPolicy("RequireAdminRole", policy =>
+                    policy.RequireRole("Admin"));
+
+                options.AddPolicy("RequireUserRole", policy =>
+                    policy.RequireRole("User"));
+
+                options.AddPolicy("RequireAdminOrUser", policy =>
+                    policy.RequireRole("Admin", "User"));
+
+                options.AddPolicy("RequireCustomClaim", policy =>
+                    policy.RequireClaim("CustomClaimType", "CustomClaimValue"));
+            });
+
+            return services;
+        }
+
+        private static IServiceCollection RegisterSwaggerGen(this IServiceCollection services)
+        {
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "DiarioDelGelato.WebAPI", Version = "v1" });
+                c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+                {
+                    Description = "JWT Authorization header using the Bearer scheme.",
+                    Name = "Authorization",
+                    In = ParameterLocation.Header,
+                    Type = SecuritySchemeType.Http,
+                    Scheme = "Bearer"
+                });
+                c.AddSecurityRequirement(new OpenApiSecurityRequirement
+                {
+                    {
+                        new OpenApiSecurityScheme
+                        {
+                            Reference = new OpenApiReference
+                            {
+                                Type = ReferenceType.SecurityScheme,
+                                Id = "Bearer"
+                            }
+                        },
+                        new string[] {}
+                    }
+                });
+            });
             return services;
         }
 

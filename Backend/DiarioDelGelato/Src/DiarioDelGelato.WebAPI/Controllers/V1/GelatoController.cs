@@ -21,6 +21,7 @@ namespace DiarioDelGelato.WebAPI.Controllers.V1
             _gelatoService = gelatoService;
         }
 
+        [Authorize]
         [HttpGet]
         public async Task<ActionResult<IReadOnlyList<GelatoResponseDto>>> GetGelatosAsync()
         {
