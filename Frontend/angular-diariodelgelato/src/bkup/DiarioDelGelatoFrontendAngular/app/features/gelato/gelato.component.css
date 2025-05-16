@@ -1,0 +1,23 @@
+/* https://coolors.co/palette/6b9080-a4c3b2-cce3de-eaf4f4-f6fff8
+#6B9080
+#A4C3B2
+#CCE3DE
+#EAF4F4
+#F6FFF8 */
+
+.card {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.card-header{
+    background-color: #6B9080;
+    color: whitesmoke;
+}
+
+.table{
+    background-color: #EAF4F4;
+}
+
+.btn{
+    background-color: #CCE3DE;
+}

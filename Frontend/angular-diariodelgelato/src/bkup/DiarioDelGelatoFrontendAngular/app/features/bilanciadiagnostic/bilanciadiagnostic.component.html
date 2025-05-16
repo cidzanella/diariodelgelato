@@ -1,0 +1,18 @@
+<div class="card">
+    <div class="card-header">
+        <div class="card-title">Diagnóstico da Balança</div>   
+    </div>
+    <div class="card-body">
+        <div class="card-text">
+            Conecte a balança DYMO 25 na porta USB do notebook para um teste de conexão e diagnóstico.
+        </div>
+        <diarioapp-bilancia (weightRead)="gotWeightFromScale($event)"></diarioapp-bilancia>
+        <table class="table table-striped">
+            <tbody>
+                <tr *ngFor="let weight of weightsFromScale">
+                    <td>{{weight}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

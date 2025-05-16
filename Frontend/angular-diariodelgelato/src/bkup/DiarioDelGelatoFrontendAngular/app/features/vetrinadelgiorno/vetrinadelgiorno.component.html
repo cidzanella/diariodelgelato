@@ -1,0 +1,29 @@
+<div class="container">
+    <div class="row">
+        <div class="col col-sm-12">
+          <div class="card">
+            <div class="card-body">
+                <div class="card-header bg-info text-white">VITRINE</div>
+                <div class="card-body">
+                  <h5 class="card-title">La vetrina del giorno</h5>
+                  <p class="card-text">Sono sempre 18 gusti del nostro fantastico gelato. 
+                      Di sicuro troverai quello che te incanterá! </p> 
+                  <p class="card-text">Há sempre 18 sabores do nosso fantástico sorvete.
+                      Com certeza você vai encontrar o que vai te encantar!</p> 
+                  <p class="card-text">E hoje na nossa vitrine:</p>
+                  <div class="card-group">
+                    <div class="card-columns">
+                        <div *ngFor="let gelato of gelatos" class="card text-white bg-success mb-3" >
+                            <div class="card-header">{{gelato.name}}</div>
+                            <div class="card-body">
+                                <p class="card-text">[ {{gelato.description}} ]</p>
+                            </div>
+                            <!-- <div class="card-footer"><small class="text-muted">Update 3min ago</small></div> -->
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

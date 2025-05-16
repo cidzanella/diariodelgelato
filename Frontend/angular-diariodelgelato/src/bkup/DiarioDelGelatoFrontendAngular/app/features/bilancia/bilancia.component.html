@@ -1,0 +1,25 @@
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <div class="input-group mt-2 ">
+                <div class="input-group-prepend">
+                    <button class="btn btn-outline-secondary" type="button" (click)="getWeightFromScale()">
+                        <img src="../../../assets/icons/weight-scale_10035919.png" style="max-width: 18px;">
+                    </button>
+                    <!-- <span class="input-group-text"><img src="../../../assets/icons/weight-scale_10035919.png" style="max-width: 24px;"></span> -->
+                    <!-- <span class="input-group-text">DYMO</span> -->
+                </div>
+                <input type="text" class="form-control font-weight-bold text-center" readonly [value]="weightFromScale">
+                <div class="input-group-append">
+                <span class="input-group-text">g</span>
+                </div>
+            </div>
+            <!-- error presenting     -->
+            <div *ngIf="statusMessage" class="small alert-warning text-center">{{statusMessage}}</div>
+            <div class=" mb-2"></div>
+        <!-- <div>
+                <button type="button" class="btn btn-sm form-control">Registrar</button>
+            </div>     -->
+        </div>
+    </div>
+</div>

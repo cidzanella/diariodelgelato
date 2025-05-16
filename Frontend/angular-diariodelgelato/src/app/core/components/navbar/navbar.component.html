@@ -1,0 +1,45 @@
+<nav class="navbar navbar-expand-lg navbar-dark">
+    <!-- ICON -->
+    <a class="navbar-brand" href="#">
+        <img src="../../../assets/logo/PerdonatoLogo.jpg" style="max-width:200px" alt="Perdonato">
+    </a>
+    <!-- BUTTON TOGGLER -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <!-- MENU ITENS -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto ">
+            <!-- VETRINA DEL GIORNO -->
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/vetrinadelgiorno">Vetrina del Giorno</a>
+            </li>
+            <!-- DIÁRIO DA VITRINE (click)="false"-->
+            <li class="nav-item dropdown" dropdown routerLinkActive='active'>
+                <a class="nav-link dropdownToggle" id="dropdownMenuMovement" dropdownToggle>Diário da Vitrine</a> 
+                <ul class="dropdown-menu" *dropdownMenu  aria-labelledby="dropdownMenuMovement">
+                    <!-- Entrada na Vitrine -->
+                    <li role="menuitem"><a class="dropdown-item" routerLink="#">Entrada na Vitrine</a></li>
+                    <!-- Saída da Vitrine-->
+                    <li role="menuitem"><a class="dropdown-item" routerLink="#">Saída da Vitrine</a></li>
+                    <!-- Casquinha do Dia -->
+                    <li class="divider dropdown-divider"></li>
+                    <li role="menuitem"><a class="dropdown-item" routerLink="/conodelgiorno">Casquinha do Dia</a></li>
+                    <!-- Relatório do Dia -->
+                    <li class="divider dropdown-divider"></li>
+                    <li role="menuitem"><a class="dropdown-item" routerLink="#">Relatório do Dia</a></li>
+                </ul>
+            </li>
+            <!-- BALANÇA -->
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/bilanciadiagnostic">Balança</a>
+            </li>
+            <!-- GELATOS -->
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/gelato">Gelatos</a>
+            </li>
+        </ul>
+        <!-- LOGIN -->
+        <div class="navbar-nav"><a class="nav-link" routerLink="/login">Login</a></div>
+    </div>
+</nav>

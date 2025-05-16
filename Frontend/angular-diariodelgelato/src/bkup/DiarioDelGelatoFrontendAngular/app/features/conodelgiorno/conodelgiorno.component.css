@@ -1,0 +1,12 @@
+.card {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.card-header{
+    background-color: #6B9080;
+    color: whitesmoke;
+}
+
+.btn{
+    background-color: #CCE3DE;
+}

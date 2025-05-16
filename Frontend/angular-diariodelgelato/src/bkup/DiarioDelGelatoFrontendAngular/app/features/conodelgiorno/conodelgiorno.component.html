@@ -1,0 +1,46 @@
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+            <div class="card-title">Casquinha do Dia</div>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col col-6">
+                    <div class="form" onsubmit="">
+                        <div class="mb-2">
+                            <label>Pesando a casquinha do dia para</label>
+                            <select class="form-control">
+                                <option></option>
+                                <option *ngFor="let member of team">{{member.fullName}}</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label class="">Indique até dois sabores escolhidos</label>
+                            <div class="row">
+                                <div class="col-6">
+                                    <select class="form-control">
+                                        <option> </option>
+                                        <option *ngFor="let gelato of gelatos">{{gelato.name}}</option>
+                                    </select>
+                                </div>
+                                <div class="col-6">
+                                    <select class="form-control">
+                                        <option> </option>
+                                        <option *ngFor="let gelato of gelatos">{{gelato.name}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-2">
+                            <label>Coloque o suporte de casquinha e tare a balança.</label>
+                            <label>Pese a casquinha clicando no botão balança abaixo. </label>
+                            <diarioapp-bilancia (weightRead)="gotWeightFromScale($event)"></diarioapp-bilancia>
+                            <div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
