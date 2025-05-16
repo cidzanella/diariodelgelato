@@ -32,6 +32,10 @@ namespace DiarioDelGelato.Application.Services.Identity
             var responseUser = await _userService.ReadUserByUsernameAsync(authenticationRequest.UserName);
             if (!responseUser.Success)
                 return new ServiceResponse<AuthenticationResponseDTO>($"Unauthorized! {responseUser.Message}");
+            
+            // verify if user is enabled
+            if (!responseUser.Data.IsEnabled)
+                return new ServiceResponse<AuthenticationResponseDTO>("Unauthorized! This user is disabled. Contact the administrator.");
 
             // get user password data
             var responseUserAuthenticationData = await _userService.GetUserPasswordDataAsync(responseUser.Data.Id);
@@ -43,13 +47,7 @@ namespace DiarioDelGelato.Application.Services.Identity
             if (!responseToken.Success)
                 return new ServiceResponse<AuthenticationResponseDTO>(responseToken.Message);
 
-            var responseDTO = new AuthenticationResponseDTO
-            {
-                Token = responseToken.Data,
-                IsAdmin = responseUser.Data.IsAdmin,
-                UserName = responseUser.Data.UserName,
-                IsEnabled = responseUser.Data.IsEnabled
-            };
+            var responseDTO = new AuthenticationResponseDTO { Token = responseToken.Data };
 
             return new ServiceResponse<AuthenticationResponseDTO>(responseDTO);
 

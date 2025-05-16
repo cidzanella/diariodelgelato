@@ -2,7 +2,7 @@
 using DiarioDelGelato.Domain.Validations.Rules;
 using FluentValidation;
 
-namespace DiarioDelGelato.WebAPI.Validators.Identity
+namespace DiarioDelGelato.Application.Validators.Identity
 {
     public class AuthenticationRequestValidator : AbstractValidator<AuthenticationRequestDTO>
     {

@@ -48,7 +48,7 @@ namespace DiarioDelGelato.Infrastructure.Identity.Services
 {
                 new Claim(JwtRegisteredClaimNames.Sub, userName),
                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
-                new Claim(ClaimTypes.Role, isAdmin?"Admin":"User")
+                new Claim(ClaimTypes.Role, isAdmin?"ADMIN":"USER")
 
             };
 

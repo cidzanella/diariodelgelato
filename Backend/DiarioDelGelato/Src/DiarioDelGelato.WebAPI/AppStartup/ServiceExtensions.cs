@@ -3,9 +3,10 @@ using Asp.Versioning.ApiExplorer;
 using DiarioDelGelato.Application;
 using DiarioDelGelato.Infrastructure;
 using DiarioDelGelato.Infrastructure.Persistance;
-using FluentValidation;
 using FluentValidation.AspNetCore;
+using FluentValidation;
 using Microsoft.OpenApi.Models;
+using DiarioDelGelato.Application.Common;
 
 namespace DiarioDelGelato.WebAPI.AppStartup
 {
@@ -21,8 +22,8 @@ namespace DiarioDelGelato.WebAPI.AppStartup
             services.AddEndpointsApiExplorer();
             services.AddCors();
             services.RegisterSwaggerGen();
-            services.RegisterApiVersioningService();
             services.RegisterFluentValidationService();
+            services.RegisterApiVersioningService();
             return services;
         }
 
@@ -77,14 +78,6 @@ namespace DiarioDelGelato.WebAPI.AppStartup
             return services;
         }
 
-        private static IServiceCollection RegisterFluentValidationService(this IServiceCollection services)
-        {
-            services.AddFluentValidationAutoValidation();
-            services.AddFluentValidationClientsideAdapters();
-            services.AddValidatorsFromAssemblyContaining<Program>(); //automaticaly will look for all validators in the assembly and they are located in Application layer at validators folder
-            return services;
-        }
-
         private static IServiceCollection RegisterApiVersioningService(this IServiceCollection services)
         {
             // add versioned api explorer and then add the versioned api explorer, which also adds IApiVersionDescriptionProvider service
@@ -107,6 +100,13 @@ namespace DiarioDelGelato.WebAPI.AppStartup
 
             return services;
         }
-        
+
+        private static IServiceCollection RegisterFluentValidationService(this IServiceCollection services)
+        {
+            services.AddFluentValidationAutoValidation();
+            //automaticaly will look for all validators in the assembly and they are located in Application layer at validators folder
+            services.AddValidatorsFromAssemblyContaining<AssemblyReference>();
+            return services;
+        }
     }
 }

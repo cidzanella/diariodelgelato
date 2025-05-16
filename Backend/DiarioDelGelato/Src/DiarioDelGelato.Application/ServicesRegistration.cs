@@ -26,5 +26,8 @@ namespace DiarioDelGelato.Application
             services.AddScoped<IAuthenticationService, AuthenticationService>();
             return services;
         }
+
+        
+
     }
 }

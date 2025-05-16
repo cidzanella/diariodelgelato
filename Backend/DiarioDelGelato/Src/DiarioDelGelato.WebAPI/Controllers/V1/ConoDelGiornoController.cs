@@ -2,6 +2,7 @@
 using DiarioDelGelato.Application.Extensions;
 using DiarioDelGelato.Application.Interfaces.Services.Features;
 using DiarioDelGelato.Application.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -17,6 +18,7 @@ namespace DiarioDelGelato.WebAPI.Controllers.V1
         public ConoDelGiornoController(IConoDelGiornoService conoDelGiornoService) => _conoDelGiornoService = conoDelGiornoService;
 
         // POST api/<ConoDelGiornoController>
+        [Authorize]
         [HttpPost]
         public async Task<ActionResult<ConoDelGiornoResponseDto>> PostConoDelGiornoAsync([FromBody] ConoDelGiornoCreateRequestDto conoDelGiornoCreate)
         {

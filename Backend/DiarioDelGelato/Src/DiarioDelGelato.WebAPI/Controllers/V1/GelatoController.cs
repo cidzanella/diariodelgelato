@@ -16,18 +16,15 @@ namespace DiarioDelGelato.WebAPI.Controllers.V1
     {
         private readonly IGelatoService _gelatoService;
 
-        public GelatoController(IGelatoService gelatoService)
-        {
+        public GelatoController(IGelatoService gelatoService) => 
             _gelatoService = gelatoService;
-        }
 
         [Authorize]
         [HttpGet]
-        public async Task<ActionResult<IReadOnlyList<GelatoResponseDto>>> GetGelatosAsync()
-        {
-            return Ok(await _gelatoService.ReadGelatosAsync());
-        }
+        public async Task<ActionResult<IReadOnlyList<GelatoResponseDto>>> GetGelatosAsync() => 
+            Ok(await _gelatoService.ReadGelatosAsync());
 
+        [Authorize]
         [HttpGet("{id}")]
         public async Task<ActionResult<GelatoResponseDto>> GetGelatoAsync(int id)
         {
@@ -42,7 +39,7 @@ namespace DiarioDelGelato.WebAPI.Controllers.V1
             }
         }
 
-        // [Authorize]
+        [Authorize(Roles = "ADMIN")]
         [HttpPost]
         public async Task<ActionResult<GelatoResponseDto>> PostGelatoAsync([FromBody] GelatoCreateRequestDto gelatoCreate)
         {
@@ -57,7 +54,7 @@ namespace DiarioDelGelato.WebAPI.Controllers.V1
             }
         }
 
-        // [Authorize]
+        [Authorize(Roles = "ADMIN")]
         [HttpPut("{id}")]
         public async Task<ActionResult<GelatoResponseDto>> PutGelatoAsync(int id, [FromBody] GelatoUpdateRequestDto gelatoUpdate)
         {
@@ -80,7 +77,7 @@ namespace DiarioDelGelato.WebAPI.Controllers.V1
 
         }
 
-        // [Authorize]
+        [Authorize(Roles = "ADMIN")]
         [HttpDelete("{id}")]
         public async Task<ActionResult> DeleteGelatoAsync(int id)
         {

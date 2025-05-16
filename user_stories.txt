@@ -119,11 +119,11 @@ so that i can calculate daily monthly annualy gelato cost
 
 as a manager
 i want to know gelato sold in grams
-so that i can calculate gelato consumption error (daily monthly annualy)
+so that i can calculate gelato consumption error (daily monthly annualy): input it manually from datacaixa since there is no api
 
 as a manager
 i want to know gelato income
-so that i can calculate the cost-to-income rate (cost/sales ratio)
+so that i can calculate the cost-to-income rate (cost/sales ratio): input it manually from datacaixa since there is no api
 
 as a manager
 i want to eliminate manual gelato weighting
@@ -143,7 +143,7 @@ so that i can check if it shows a well balanced offer to customers
 
 as a manager 
 i want to get an alert when the gelato offer is off-balance
-so that i can ask for changes on gelato display flavours
+so that i can ask for changes on gelato display flavours (set balance parameters such as: no more than two chocolate flavours or at least two fruit sorbetto)
 
 as a manager
 i want to have a web dashboard on the gelato journal information
@@ -151,7 +151,7 @@ so that i can access the information from anywhere mobile or pc
 
 as a manager
 i want the application to get sales information from Datacaixa
-so that i dont have to manualy do this
+so that i dont have to manualy do this (right now they do not have an api)
 
 as a manager
 i want to keep track of gelato recipes, production itens and costs

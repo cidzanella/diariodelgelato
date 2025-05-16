@@ -1,7 +1,7 @@
 ﻿using DiarioDelGelato.Application.DTOs.Identity;
 using FluentValidation;
 
-namespace DiarioDelGelato.WebAPI.Validators.Identity
+namespace DiarioDelGelato.Application.Validators.Identity
 {
     public class RevoqueTokenRequestValidator : AbstractValidator<RevokeTokenRequestDTO>
     {
